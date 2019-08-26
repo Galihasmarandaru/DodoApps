@@ -34,7 +34,8 @@ class ProfileBeADonorTableViewController: UITableViewController {
         
         profileBeADonorTableView.tableFooterView = UIView()
         
-        profileBeADonorTableView.rowHeight = 150
+        dogListView.frame = CGRect(x: 0, y: 0, width: 414, height: 750)
+        profileBeADonorTableView.rowHeight = 750
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

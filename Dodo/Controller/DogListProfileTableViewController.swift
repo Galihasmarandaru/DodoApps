@@ -18,7 +18,7 @@ class DogListProfileTableViewController: UITableViewController {
         super.viewDidLoad()
 
         loadDogs()
-        
+        dogListTableView.tableFooterView = UIView()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -39,7 +39,13 @@ class DogListProfileTableViewController: UITableViewController {
     
     func loadDogs() {
         let dog = Donor.init(dogName: "Axel", dogAge: 3, dogWeight: 23)
+        let dog1 = Donor.init(dogName: "aaaa", dogAge: 4, dogWeight: 44)
+        let dog2 = Donor.init(dogName: "bbb", dogAge: 5, dogWeight: 55)
         dogs.append(dog)
+        dogs.append(dog1)
+        dogs.append(dog2)
+        dogs.append(dog)
+        dogs.append(dog1)
     }
 
     

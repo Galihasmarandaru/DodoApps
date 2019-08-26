@@ -10,7 +10,7 @@ import UIKit
 
 class ProfileTableViewController: UITableViewController {
 
-    @IBOutlet weak var profilePictureImageView: UIImageView!
+    @IBOutlet weak var profilePictureButton: UIButton!
     @IBOutlet weak var profileNameLabel: UILabel!
     @IBOutlet weak var phoneTextField: UITextField!
     @IBOutlet weak var locationLabel: UILabel!
@@ -19,8 +19,8 @@ class ProfileTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        profilePictureImageView.layer.masksToBounds = true
-        profilePictureImageView.layer.cornerRadius = profilePictureImageView.bounds.width / 2
+        profilePictureButton.layer.masksToBounds = true
+        profilePictureButton.layer.cornerRadius = profilePictureButton.bounds.width / 2
         
         profileNameLabel.text = "Nama User"
         
