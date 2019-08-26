@@ -28,7 +28,7 @@ class customTextField: UITextField {
         
         //create line as border
         self.addSubview(bottomBorder)
-        bottomBorder.frame = CGRect(x: 0, y: self.frame.height + 4, width: self.frame.width, height: 1)
+        bottomBorder.frame = CGRect(x: 0, y: self.frame.height, width: self.frame.width, height: 1)
         
         bottomBorder.backgroundColor = .black
     }
