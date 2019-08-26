@@ -107,6 +107,9 @@ class LoginController: UIViewController {
         phoneErr.textColor = (phone == dummyPhone) ? .clear : .ErrorRed
         passErr.textColor = (password == dummyPass) ? .clear : .ErrorRed
     }
+    @IBAction func loginBtnPressed(_ sender: UIButton) {
+        signIn()
+    }
 }
 
 extension LoginController: UITextFieldDelegate

@@ -22,8 +22,8 @@ class RoundedButton: UIButton {
     func setupButton()
     {
         setTitleColor(.black, for: .normal)
-        backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.6784313725, blue: 0.6078431373, alpha: 1)
+        backgroundColor = .ButtonPeach
         layer.cornerRadius = self.frame.height/3
-        heightAnchor.constraint(equalToConstant: 60.0).isActive = true
+        heightAnchor.constraint(equalToConstant: 45.0).isActive = true
     }
 }

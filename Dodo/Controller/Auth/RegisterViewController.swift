@@ -82,7 +82,7 @@ extension RegisterViewController: UITextFieldDelegate
         
         switch textField.tag {
         case TextFieldTag.name.rawValue:
-            nameTxt.becomeFirstResponder()
+            phoneTxt.becomeFirstResponder()
         case TextFieldTag.phone.rawValue:
             passTxt.becomeFirstResponder()
         case TextFieldTag.password.rawValue:
