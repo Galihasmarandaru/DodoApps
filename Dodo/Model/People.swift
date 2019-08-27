@@ -12,6 +12,8 @@ class People {
     var name: String?
     var address: String?
     var picture: UIImage?
+    var password: String?
+    var phoneNumber: String?
     
     var statusActivity: Transfused!
 
