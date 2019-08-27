@@ -75,16 +75,12 @@ class LoginController: UIViewController {
     
     private func signIn()
     {
-        phoneErr.textColor = .ErrorRed
-        passErr.textColor = .ErrorRed
+        self.phoneErr.textColor = .clear
+        self.passErr.textColor = .clear
         
         view.endEditing(true)
         
-        let dummyPhone = "0859"
-        let dummyPass = "abcdef"
-        
         let salt = "xhakgl1m4jl0kal8=gma0.m"
-        let dummyPassHash = "\(dummyPass).\(salt)".sha256()
         
         guard let phone = phoneTxt.text, phone.count > 0 else
         {return}
@@ -92,20 +88,33 @@ class LoginController: UIViewController {
         guard let password = passTxt.text, password.count > 0 else
         {return}
         
-        if phone == dummyPhone && "\(password).\(salt)".sha256() == dummyPassHash
-        {
-            let deviceName = UIDevice.current.name
-            let user = User(deviceName: deviceName, phone: phone)
-            
-            do {
-                try AuthController.signIn(user, password: password)
-            } catch{
-                print("Error signing in: \(error.localizedDescription)")
+        CloudViewController.fetchAuth(phone: phone, completion: {(result) in
+            print(result)
+            if result.count > 0 //ada data dengan no hape yg sama
+            {
+                print("\(password).\(salt)".sha256())
+                if "\(password).\(salt)".sha256() == result[0].value(forKey: "password") as! String
+                {
+                    let deviceName = UIDevice.current.name
+                    let user = User(deviceName: deviceName, phone: phone)
+                    
+                    do {
+                        try AuthController.signIn(user, password: password)
+                    } catch{
+                        print("Error signing in: \(error.localizedDescription)")
+                    }
+                }
+                else
+                {
+                    self.passErr.textColor = .ErrorRed
+                }
             }
-        }
-        
-        phoneErr.textColor = (phone == dummyPhone) ? .clear : .ErrorRed
-        passErr.textColor = (password == dummyPass) ? .clear : .ErrorRed
+            else
+            {
+                self.phoneErr.textColor = .ErrorRed
+                self.passErr.textColor = .ErrorRed
+            }
+        })
     }
     @IBAction func loginBtnPressed(_ sender: UIButton) {
         signIn()

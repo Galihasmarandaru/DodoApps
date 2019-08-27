@@ -67,6 +67,17 @@ class RegisterViewController: UIViewController {
         //put sign up func here
         if validate()
         {
+            let salt = "xhakgl1m4jl0kal8=gma0.m"
+            let user = People()
+            
+            let password : String = passTxt.text!
+            
+            user.name = nameTxt.text
+            user.phoneNumber = phoneTxt.text
+            user.password = "\(password).\(salt)".sha256()
+            
+            CloudViewController.saveUserData(user: user)
+            
             print("regis")
         }
     }
