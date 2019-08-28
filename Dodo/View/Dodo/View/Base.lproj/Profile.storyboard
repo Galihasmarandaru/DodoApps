@@ -19,7 +19,7 @@
                         <sections>
                             <tableViewSection id="ijy-rx-FXY">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="200" id="x6z-NN-7fP">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="200" id="x6z-NN-7fP">
                                         <rect key="frame" x="0.0" y="35" width="414" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="x6z-NN-7fP" id="k6q-n7-T8H">
@@ -53,7 +53,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="phone" id="l0Z-Le-g0N">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="rUa-65-0va">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="rUa-65-0va">
                                         <rect key="frame" x="0.0" y="291" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rUa-65-0va" id="kua-ys-tqb">
@@ -587,7 +587,7 @@
         <scene sceneID="tZ4-Xt-X9g">
             <objects>
                 <tableViewController title="New Dog" id="CzN-z8-p5j" customClass="NewDogTableViewController" customModule="Dodo" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="static" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="ndh-dy-I7h" customClass="I">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="static" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="ndh-dy-I7h">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -621,7 +621,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="name" id="3cb-FD-eUg">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="Rgm-s2-ThF">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="44" id="Rgm-s2-ThF">
                                         <rect key="frame" x="0.0" y="291" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Rgm-s2-ThF" id="dZe-Ky-0Lz">
@@ -642,7 +642,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="age" id="HF9-rN-q3t">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="2Vg-W3-aAZ">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="44" id="2Vg-W3-aAZ">
                                         <rect key="frame" x="0.0" y="391" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2Vg-W3-aAZ" id="KPr-Ht-ihV">
@@ -666,7 +666,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="weight" id="5G2-wu-PIe">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="SoM-wC-lGF">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="44" id="SoM-wC-lGF">
                                         <rect key="frame" x="0.0" y="491" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SoM-wC-lGF" id="2R7-sJ-434">
@@ -690,7 +690,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="blood type" footerTitle="*If you have checked your dog's blood type" id="Rl4-RG-bXf">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="BjT-QG-nI0">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="44" id="BjT-QG-nI0">
                                         <rect key="frame" x="0.0" y="598.5" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BjT-QG-nI0" id="h5v-xa-AUH">
@@ -714,7 +714,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="last donor" footerTitle="*If your dog have given a donor" id="Hxb-Xa-zfO">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="0px-C4-9Od">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="44" id="0px-C4-9Od">
                                         <rect key="frame" x="0.0" y="718" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0px-C4-9Od" id="YBq-Ga-dZD">
@@ -735,21 +735,26 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="vaccine book" id="eRT-dz-zcj">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="6Dg-tz-odz">
-                                        <rect key="frame" x="0.0" y="830" width="414" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="200" id="6Dg-tz-odz">
+                                        <rect key="frame" x="0.0" y="830" width="414" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6Dg-tz-odz" id="yOS-s7-LkF">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="raj-2d-qCq">
-                                                    <rect key="frame" x="20" y="7" width="374" height="30"/>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yK2-v5-y1R">
+                                                    <rect key="frame" x="132" y="25" width="150" height="150"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Upload vaccine book"/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <state key="normal" title="add vaccine book"/>
                                                     <connections>
-                                                        <action selector="uploadVaccineBookPressed:" destination="CzN-z8-p5j" eventType="touchUpInside" id="Bpg-aV-R49"/>
+                                                        <action selector="vaccineBookButtonPressed:" destination="CzN-z8-p5j" eventType="touchUpInside" id="oWS-1K-wrW"/>
                                                     </connections>
                                                 </button>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qt4-zY-UGe">
+                                                    <rect key="frame" x="132" y="25" width="150" height="150"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -758,7 +763,7 @@
                             <tableViewSection id="JrN-bV-i2i">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="200" id="f2P-gs-gWu">
-                                        <rect key="frame" x="0.0" y="910" width="414" height="200"/>
+                                        <rect key="frame" x="0.0" y="1066" width="414" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="f2P-gs-gWu" id="Bdt-3f-54M">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
@@ -800,12 +805,16 @@
                         <outlet property="dogPictureButton" destination="c5M-Bd-LkM" id="VDj-Tk-yaw"/>
                         <outlet property="dogProfilePictureImageView" destination="y6U-G3-wAx" id="RXG-9H-SMT"/>
                         <outlet property="dogWeightTextField" destination="REt-AN-mge" id="6Wt-Us-1wU"/>
+                        <outlet property="newDogTableView" destination="ndh-dy-I7h" id="cvM-YV-lhk"/>
+                        <outlet property="vaccineBookButton" destination="yK2-v5-y1R" id="9By-Wv-4uW"/>
+                        <outlet property="vaccineBookImageView" destination="Qt4-zY-UGe" id="cMM-st-umP"/>
+                        <outlet property="vaccineBookView" destination="yOS-s7-LkF" id="kna-SG-a1J"/>
                         <segue destination="roc-ld-aeg" kind="presentation" identifier="goToProfileBeADonor" id="rXU-9K-KfC"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X8E-Sn-Gre" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3581" y="-877"/>
+            <point key="canvasLocation" x="3579.7101449275365" y="-877.23214285714278"/>
         </scene>
         <!--Profile-->
         <scene sceneID="q9p-dQ-Lo2">
@@ -851,7 +860,6 @@
         <image name="Profile" width="16" height="18.5"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="rXU-9K-KfC"/>
-        <segue reference="yMP-qZ-TtM"/>
+        <segue reference="8Qn-gO-MO1"/>
     </inferredMetricsTieBreakers>
 </document>

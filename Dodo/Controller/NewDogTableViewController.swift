@@ -17,6 +17,11 @@ class NewDogTableViewController: UITableViewController, UIPickerViewDelegate, UI
     @IBOutlet weak var dogWeightTextField: UITextField!
     @IBOutlet weak var dogBloodTypeTextField: UITextField!
     @IBOutlet weak var dogLastDonorTextField: UITextField!
+    @IBOutlet weak var uploadVaccineBookButton: UIButton!
+    @IBOutlet weak var vaccineBookImageView: UIImageView!
+    @IBOutlet weak var vaccineBookButton: UIButton!
+    @IBOutlet weak var newDogTableView: UITableView!
+    @IBOutlet weak var vaccineBookView: UIView!
     
     let viewPicker = UIPickerView()
     var dogAgePickerData: [String] = [String]()
@@ -30,6 +35,7 @@ class NewDogTableViewController: UITableViewController, UIPickerViewDelegate, UI
     var dogWeight = ""
     var dogBloodType = ""
     var dogLastDonor = ""
+    var temp = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +53,25 @@ class NewDogTableViewController: UITableViewController, UIPickerViewDelegate, UI
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
+    @IBAction func vaccineBookButtonPressed(_ sender: Any) {
+        temp = 1
+        let alert = UIAlertController(title: "Choose Image", message: nil, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { _ in
+            self.openCamera()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Gallery", style: .default, handler: { _ in
+            self.openGallery()
+        }))
+        
+        alert.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     @IBAction func dogPictureButtonPressed(_ sender: Any) {
+        temp = 0
+        
         let alert = UIAlertController(title: "Choose Image", message: nil, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { _ in
             self.openCamera()
@@ -98,7 +122,12 @@ class NewDogTableViewController: UITableViewController, UIPickerViewDelegate, UI
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let pickedImage = info[.originalImage] as? UIImage {
-            dogProfilePictureImageView.image = pickedImage
+            if temp == 0 {
+                dogProfilePictureImageView.image = pickedImage
+            }
+            else {
+                vaccineBookImageView.image = pickedImage
+            }
         }
         picker.dismiss(animated: true, completion: nil)
     }
@@ -174,10 +203,6 @@ class NewDogTableViewController: UITableViewController, UIPickerViewDelegate, UI
     
     @IBAction func dogBloodTypeEditingDidBegin(_ sender: UITextField) {
         setDogBloodTypePicker()
-    }
-    
-    @IBAction func uploadVaccineBookPressed(_ sender: UIButton) {
-        
     }
     
     @IBAction func saveButtonPressed(_ sender: UIButton) {
