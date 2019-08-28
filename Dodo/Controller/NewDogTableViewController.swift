@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CloudKit
 
 class NewDogTableViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
@@ -17,6 +18,8 @@ class NewDogTableViewController: UITableViewController, UIPickerViewDelegate, UI
     @IBOutlet weak var dogBloodTypeTextField: UITextField!
     @IBOutlet weak var dogLastDonorTextField: UITextField!
     
+    var cloudDog = CKContainer.default().privateCloudDatabase
+    
     let viewPicker = UIPickerView()
     var dogAgePickerData: [String] = [String]()
     var dogWeightPickerData: [String] = [String]()
@@ -25,8 +28,8 @@ class NewDogTableViewController: UITableViewController, UIPickerViewDelegate, UI
     var dog: Donor? = nil
     
     var dogName = ""
-    var dogAge = ""
-    var dogWeight = ""
+    var dogAge: Int64?
+    var dogWeight: Int64?
     var dogBloodType = ""
     var dogLastDonor = ""
     
@@ -134,12 +137,30 @@ class NewDogTableViewController: UITableViewController, UIPickerViewDelegate, UI
             showErrorAlert(errorTitle: "Error", errorMessage: "Dog blood type must be chosen!")
         }
         else {
-            dogName = dogNameTextField.text ?? ""
-            dogAge = dogAgeTextField.text ?? ""
-            dogWeight = dogWeightTextField.text ?? ""
-            dogBloodType = dogBloodTypeTextField.text ?? ""
             
-            dog = Donor.init(dogName: dogName, dogAge: Int(dogAge) ?? 0, dogWeight: Int(dogWeight) ?? 0)
+            let dogs = CKRecord(recordType: "Dogs")
+            
+            dogName = dogNameTextField.text as CKRecordValue? as! String
+            dogAge = dogAgeTextField.text as CKRecordValue? as? Int64
+            dogWeight = dogWeightTextField.text as CKRecordValue? as? Int64
+            dogBloodType = dogBloodTypeTextField.text as CKRecordValue? as! String
+            
+            dogs.setObject(dogName as __CKRecordObjCValue, forKey: "dogName")
+            dogs.setObject(dogAge as __CKRecordObjCValue?, forKey: "dogAge")
+            dogs.setObject(dogWeight as __CKRecordObjCValue?, forKey: "dogWeight")
+            dogs.setObject(dogBloodType as __CKRecordObjCValue, forKey: "dogRhesus")
+            
+            dog = Donor.init(dogName: dogName, dogAge: dogAge ?? 0, dogWeight: dogWeight ?? 0, dogRhesus: dogBloodType)
+            
+            cloudDog.save(dogs) { (record, error) in
+                DispatchQueue.main.async {
+                    if let error = error {
+                        print(error)
+                    } else {
+                        print("Record saved")
+                    }
+                }
+            }
             
             performSegue(withIdentifier: "goToProfileBeADonor", sender: self)
         }

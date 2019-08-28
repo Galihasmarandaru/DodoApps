@@ -38,9 +38,9 @@ class DogListProfileTableViewController: UITableViewController {
     }
     
     func loadDogs() {
-        let dog = Donor.init(dogName: "Axel", dogAge: 3, dogWeight: 23)
-        let dog1 = Donor.init(dogName: "aaaa", dogAge: 4, dogWeight: 44)
-        let dog2 = Donor.init(dogName: "bbb", dogAge: 5, dogWeight: 55)
+        let dog = Donor.init(dogName: "Axel", dogAge: 3, dogWeight: 23, dogRhesus: "Positive")
+        let dog1 = Donor.init(dogName: "aaaa", dogAge: 4, dogWeight: 44, dogRhesus: "Positive")
+        let dog2 = Donor.init(dogName: "bbb", dogAge: 5, dogWeight: 55, dogRhesus: "Positive")
         dogs.append(dog)
         dogs.append(dog1)
         dogs.append(dog2)

@@ -41,6 +41,10 @@
 		CA8A424B230ED8550074EA4D /* DistanceMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8A424A230ED8550074EA4D /* DistanceMapViewController.swift */; };
 		CA8A424D230EDF850074EA4D /* MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8A424C230EDF850074EA4D /* MapModel.swift */; };
 		CA8A424F230EE06A0074EA4D /* CloudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8A424E230EE06A0074EA4D /* CloudViewController.swift */; };
+		CA8CED382315E85200F93B3D /* ListDogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8CED372315E85200F93B3D /* ListDogTableViewCell.swift */; };
+		CA8CED3C23161BEF00F93B3D /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8CED3B23161BEF00F93B3D /* OnBoardingViewController.swift */; };
+		CA8CED3E23162C5800F93B3D /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8CED3D23162C5800F93B3D /* CoreDataService.swift */; };
+		CA8CED532316465400F93B3D /* chatButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8CED522316465400F93B3D /* chatButton.swift */; };
 		CA9856B123050626004170AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9856B023050626004170AA /* AppDelegate.swift */; };
 		CA9856B623050626004170AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA9856B423050626004170AA /* Main.storyboard */; };
 		CA9856B923050626004170AA /* Dodo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CA9856B723050626004170AA /* Dodo.xcdatamodeld */; };
@@ -85,6 +89,10 @@
 		CA8A424A230ED8550074EA4D /* DistanceMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceMapViewController.swift; sourceTree = "<group>"; };
 		CA8A424C230EDF850074EA4D /* MapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModel.swift; sourceTree = "<group>"; };
 		CA8A424E230EE06A0074EA4D /* CloudViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudViewController.swift; sourceTree = "<group>"; };
+		CA8CED372315E85200F93B3D /* ListDogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDogTableViewCell.swift; sourceTree = "<group>"; };
+		CA8CED3B23161BEF00F93B3D /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
+		CA8CED3D23162C5800F93B3D /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
+		CA8CED522316465400F93B3D /* chatButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chatButton.swift; sourceTree = "<group>"; };
 		CA9856AD23050626004170AA /* Dodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA9856B023050626004170AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA9856B523050626004170AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -121,6 +129,7 @@
 			children = (
 				93B4209A23139EC9000950F1 /* customTextField.swift */,
 				93B4209B23139EC9000950F1 /* RoundedButton.swift */,
+				CA8CED522316465400F93B3D /* chatButton.swift */,
 			);
 			path = "Custom UI";
 			sourceTree = "<group>";
@@ -181,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				93B420BA2313A14D000950F1 /* DogListTableViewCell.swift */,
+				CA8CED372315E85200F93B3D /* ListDogTableViewCell.swift */,
 			);
 			path = "Dog List";
 			sourceTree = "<group>";
@@ -198,6 +208,7 @@
 		CA553D96230995B600BC82CA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CA8CED3F23162E7B00F93B3D /* Core Data */,
 				93B420B72313A14D000950F1 /* Button */,
 				93B420B92313A14D000950F1 /* Dog List */,
 				93B4209623139EB6000950F1 /* Auth */,
@@ -231,6 +242,8 @@
 				CA553D9A23099CFC00BC82CA /* DonorTableViewController.swift */,
 				CA553E3D230D0E2000BC82CA /* ListDogViewController.swift */,
 				CA8A424E230EE06A0074EA4D /* CloudViewController.swift */,
+				CA8CED3B23161BEF00F93B3D /* OnBoardingViewController.swift */,
+				CA8CED3D23162C5800F93B3D /* CoreDataService.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -271,6 +284,13 @@
 				CA8A424C230EDF850074EA4D /* MapModel.swift */,
 			);
 			path = "Distance Donor";
+			sourceTree = "<group>";
+		};
+		CA8CED3F23162E7B00F93B3D /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Core Data";
 			sourceTree = "<group>";
 		};
 		CA9856A423050625004170AA = {
@@ -450,12 +470,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA8CED3E23162C5800F93B3D /* CoreDataService.swift in Sources */,
 				93B420B32313A0FD000950F1 /* ProfileBeADonorTableViewController.swift in Sources */,
 				93B420B22313A0FD000950F1 /* DogListProfileTableViewController.swift in Sources */,
 				CA553D9923099A8D00BC82CA /* DonorTableViewCell.swift in Sources */,
 				CA553E08230BE7AA00BC82CA /* CustomTabBar.swift in Sources */,
 				93B420A523139EC9000950F1 /* Color.swift in Sources */,
 				CA553E11230BF94C00BC82CA /* Transfused.swift in Sources */,
+				CA8CED532316465400F93B3D /* chatButton.swift in Sources */,
 				93B420A323139EC9000950F1 /* RoundedButton.swift in Sources */,
 				CA553E3E230D0E2000BC82CA /* ListDogViewController.swift in Sources */,
 				93B420AE2313A0FC000950F1 /* ProfileTableViewController.swift in Sources */,
@@ -465,6 +487,7 @@
 				93B420A723139EC9000950F1 /* Settings.swift in Sources */,
 				93B4209423139E90000950F1 /* RegisterViewController.swift in Sources */,
 				93B420AF2313A0FC000950F1 /* DogListTableViewController.swift in Sources */,
+				CA8CED382315E85200F93B3D /* ListDogTableViewCell.swift in Sources */,
 				93B420BB2313A14D000950F1 /* CustomButton.swift in Sources */,
 				93B4209823139EB6000950F1 /* User.swift in Sources */,
 				93B420A223139EC9000950F1 /* customTextField.swift in Sources */,
@@ -472,6 +495,7 @@
 				93992665231680020013D673 /* View Controller.swift in Sources */,
 				CA8A424D230EDF850074EA4D /* MapModel.swift in Sources */,
 				93B4209323139E90000950F1 /* ProfileDonorViewController.swift in Sources */,
+				CA8CED3C23161BEF00F93B3D /* OnBoardingViewController.swift in Sources */,
 				CA553D9D23099D9B00BC82CA /* People.swift in Sources */,
 				93B420A623139EC9000950F1 /* KeyChainManager.swift in Sources */,
 				93B420B02313A0FC000950F1 /* NewDogTableViewController.swift in Sources */,
