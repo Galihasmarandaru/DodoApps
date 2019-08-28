@@ -30,10 +30,10 @@ class RegisterViewController: UIViewController {
         case cpassword
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.hideKeyboardWhenTappedAround()
+        
         nameTxt.delegate = self
         nameTxt.tag = TextFieldTag.name.rawValue
         
@@ -52,34 +52,96 @@ class RegisterViewController: UIViewController {
         cpassErr.textColor = .clear
     }
 
-    func validate() -> Bool
+    func isPasswordEqual() -> Bool
     {
-        
-        
         let isPasswordEqual = passTxt.text == cpassTxt.text
-        passErr.textColor = isPasswordEqual ? .clear : .ErrorRed
-        cpassErr.textColor = isPasswordEqual ? .clear : .ErrorRed
         
         return isPasswordEqual
     }
     
-    @IBAction func registerPressed(_ sender: UIButton) {
+    func isUserExist(completion: @escaping (Bool) -> Void)
+    {
+        CloudViewController.fetchAuth(phone: self.phoneTxt.text!, completion: {(result) in
+            let isUserExist = result.count > 0 ? true : false
+            
+            DispatchQueue.main.async {
+                completion(isUserExist)
+            }
+        })
+    }
+    
+    func isDataValid(completion: @escaping (Bool) -> Void)
+    {
+        isUserExist(completion: { (result) in
+            if result || !self.isPasswordEqual()
+            {
+                if result
+                {
+                    DispatchQueue.main.async {
+                        self.phoneErr.textColor = .ErrorRed
+                        
+                        self.phoneErr.text = "User exists"
+                    }
+                }
+                
+                DispatchQueue.main.async {
+                    if !self.isPasswordEqual()
+                    {
+                        let errorText = "Different password"
+                        
+                        self.passErr.textColor = .ErrorRed
+                        self.cpassErr.textColor = .ErrorRed
+                        
+                        self.passErr.text = errorText
+                        self.cpassErr.text = errorText
+                    }
+                }
+                DispatchQueue.main.async {
+                    completion(false)
+                }
+            }
+            else
+            {
+                DispatchQueue.main.async {
+                    completion(true)
+                }
+            }
+        })
+    }
+    
+    func signUp()
+    {
+        nameErr.textColor = .clear
+        phoneErr.textColor = .clear
+        passErr.textColor = .clear
+        cpassErr.textColor = .clear
+        
         //put sign up func here
-        if validate()
-        {
-            let salt = "xhakgl1m4jl0kal8=gma0.m"
-            let user = People()
-            
-            let password : String = passTxt.text!
-            
-            user.name = nameTxt.text
-            user.phoneNumber = phoneTxt.text
-            user.password = "\(password).\(salt)".sha256()
-            
-            CloudViewController.saveUserData(user: user)
-            
-            print("regis")
-        }
+        isDataValid(completion: { (result) in
+            if result
+            {
+                DispatchQueue.main.async {
+                    let salt = "xhakgl1m4jl0kal8=gma0.m"
+                    let user = People()
+                    
+                    let password : String = self.passTxt.text!
+                    
+                    user.name = self.nameTxt.text
+                    user.phoneNumber = self.phoneTxt.text
+                    user.password = "\(password).\(salt)".sha256()
+                    
+                    CloudViewController.saveUserData(user: user)
+                    
+                    print("regis")
+                    
+                    NavigationController.navigate(vc: self, storyboard: "Authentication", to: "loginVC")
+                }
+            }
+        })
+    }
+    
+    @IBAction func registerPressed(_ sender: UIButton) {
+        signUp()
     }
 }
 
@@ -99,7 +161,7 @@ extension RegisterViewController: UITextFieldDelegate
         case TextFieldTag.password.rawValue:
             cpassTxt.becomeFirstResponder()
         case TextFieldTag.cpassword.rawValue:
-            print("Cpassword")
+            signUp()
         default:
             return false
         }

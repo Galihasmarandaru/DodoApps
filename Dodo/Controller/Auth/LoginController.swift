@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class LoginController: UIViewController {
 
@@ -16,6 +17,8 @@ class LoginController: UIViewController {
     @IBOutlet weak var passTxt: UITextField!
     @IBOutlet weak var passErr: UILabel!
     
+    let loadingContainer = UIView()
+    
     private enum TextFieldTag: Int
     {
         case phone
@@ -24,7 +27,8 @@ class LoginController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.hideKeyboardWhenTappedAround()
+        
         phoneTxt.delegate = self
         phoneTxt.tag = TextFieldTag.phone.rawValue
         
@@ -33,6 +37,8 @@ class LoginController: UIViewController {
         
         phoneErr.textColor = .clear
         passErr.textColor = .clear
+        
+        loadingContainer.backgroundColor = .clear
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,16 +54,8 @@ class LoginController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         if AuthController.isSignedIn
         {
-            navigateProfile()
+            //navigateProfile()
         }
-    }
-    
-    func navigateProfile()
-    {
-        let main = UIStoryboard(name: "Main", bundle: nil)
-        let profile = main.instantiateViewController(withIdentifier: "UITabBarController-LZ5-tm-lEc")
-        
-        self.present(profile, animated: false, completion: nil)
     }
     
     @objc func handleAuthState()
@@ -65,7 +63,7 @@ class LoginController: UIViewController {
         if AuthController.isSignedIn
         {
             print("User logged in")
-            navigateProfile()
+            NavigationController.navigate(vc: self, storyboard: "Main", to: "UITabBarController-LZ5-tm-lEc")
         }
         else
         {
@@ -73,10 +71,49 @@ class LoginController: UIViewController {
         }
     }
     
+    func startLoading()
+    {
+        let activityView = UIActivityIndicatorView(style: .gray)
+        activityView.center = loadingContainer.center
+        
+        loadingContainer.addSubview(activityView)
+        
+        activityView.translatesAutoresizingMaskIntoConstraints = false
+        //activityView.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        //activityView.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        activityView.centerXAnchor.constraint(equalTo: loadingContainer.centerXAnchor).isActive = true
+        activityView.centerYAnchor.constraint(equalTo: loadingContainer.centerYAnchor).isActive = true
+        
+        view.addSubview(loadingContainer)
+        
+        loadingContainer.translatesAutoresizingMaskIntoConstraints = false
+        loadingContainer.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+        loadingContainer.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
+        loadingContainer.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        loadingContainer.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+        
+        activityView.startAnimating()
+        print("start loading")
+    }
+    
+    func stopLoading()
+    {
+        print("stop loading")
+        
+        for view in loadingContainer.subviews
+        {
+            view.removeFromSuperview()
+        }
+        loadingContainer.removeFromSuperview()
+        print("finish loading")
+    }
+    
     private func signIn()
     {
         self.phoneErr.textColor = .clear
         self.passErr.textColor = .clear
+        
+        startLoading()
         
         view.endEditing(true)
         
@@ -89,7 +126,7 @@ class LoginController: UIViewController {
         {return}
         
         CloudViewController.fetchAuth(phone: phone, completion: {(result) in
-            print(result)
+            print(result.count)
             if result.count > 0 //ada data dengan no hape yg sama
             {
                 print("\(password).\(salt)".sha256())
@@ -104,20 +141,53 @@ class LoginController: UIViewController {
                         print("Error signing in: \(error.localizedDescription)")
                     }
                 }
-                else
+                else //pass salah
                 {
-                    self.passErr.textColor = .ErrorRed
+                    DispatchQueue.main.async {
+                        self.passErr.textColor = .ErrorRed
+                        self.passErr.text = "Incorrect Password"
+                    }
                 }
             }
-            else
+            else // user not exist
             {
-                self.phoneErr.textColor = .ErrorRed
-                self.passErr.textColor = .ErrorRed
+                print("user not exist")
+                let errorText = "User does not exist"
+                
+                DispatchQueue.main.async {
+                    self.phoneErr.textColor = .ErrorRed
+                    self.passErr.textColor = .ErrorRed
+                    
+                    self.phoneErr.text = errorText
+                    self.passErr.text = errorText
+                }
+            }
+            DispatchQueue.main.async {
+                self.stopLoading()
             }
         })
     }
     @IBAction func loginBtnPressed(_ sender: UIButton) {
         signIn()
+    }
+    
+    func saveOwnerID(id: String)
+    {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let userEntity = NSEntityDescription.entity(forEntityName: "User", in: managedContext)!
+        
+        let user = NSManagedObject(entity: userEntity, insertInto: managedContext)
+        
+        user.setValue(id, forKey: "ownerId")
+        
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
     }
 }
 
