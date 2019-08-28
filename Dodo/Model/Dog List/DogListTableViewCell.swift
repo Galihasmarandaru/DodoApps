@@ -27,5 +27,6 @@ class DogListTableViewCell: UITableViewCell {
     }
 
     @IBAction func availableSwitch(_ sender: Any) {
+        
     }
 }

@@ -62,7 +62,7 @@ class DistanceMapViewController: UIViewController {
 extension DistanceMapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else { return }
-        let _ = MKCoordinateRegion.init(center: location.coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
+//        let _ = MKCoordinateRegion.MKCoordinateRegionMakeWithDistance(location.coordinate, 1000, 1000)
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {

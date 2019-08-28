@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CloudKit
 
 class ProfileTableViewController: UITableViewController {
 
@@ -16,17 +17,42 @@ class ProfileTableViewController: UITableViewController {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet var profileTableView: UITableView!
     
+    var cloud = CKContainer.default().privateCloudDatabase
+    var dogLover = [CKRecord]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let query = CKQuery(recordType: "DogLover", predicate: NSPredicate(value: true))
+        
+        cloud.perform(query, inZoneWith: nil) { (records, _) in
+            guard let records = records else { return }
+            //            guard let records = records else { return }
+            //            let sortedRecords = records.sorted(by: {$0.creationDate! > $1.creationDate!})
+            //            // akses the records pada notes
+            //            self.dogsOwner = sortedRecords
+            
+            DispatchQueue.main.async {
+                for record in records {
+                    self.profileNameLabel.text = record["name"]!
+                    
+//                    self.phoneTextField.text = record["phoneNumber"]!
+//
+//                    self.locationLabel.text = record["location"]!
+                }
+            }
+//            DispatchQueue.main.async {
+//                //                 stop refresh saat ditarik
+//                //                self.tableView.refreshControl?.endRefreshing()
+//                self.dogLover = records
+//
+//            }
+        }
+
+        
         profilePictureButton.layer.masksToBounds = true
         profilePictureButton.layer.cornerRadius = profilePictureButton.bounds.width / 2
-        
-        profileNameLabel.text = "Nama User"
-        
-        phoneTextField.text = "081720272830"
-        
-        locationLabel.text = "Tangerang Selatan"
+
         
         profileTableView.tableFooterView = UIView()
 

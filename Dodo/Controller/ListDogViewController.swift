@@ -7,17 +7,79 @@
 //
 
 import UIKit
+import CloudKit
 
-class ListDogViewController: UIViewController {
-
+class ListDogViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+//    var donorOwner: People?
+    @IBOutlet weak var nameProfilList: UILabel!
+    
+    var userName: String = ""
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    var cloudDog = CKContainer.default().privateCloudDatabase
+    var dogList = [CKRecord]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         
+        let refreshControl = UIRefreshControl()
+        //        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(dogDatabase), for: .valueChanged)
+        self.tableView.refreshControl = refreshControl
+        
+        // Do any additional setup after loading the view.
+//        dogDatabase()
+        nameProfilList?.text = userName
     }
     
-    var ownerName: People!
+    override func viewWillAppear(_ animated: Bool) {
+        dogDatabase()
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dogList.count
+    }
+
+    
+    // for show dog
+    @objc func dogDatabase(){
+        let query = CKQuery(recordType: "Dogs", predicate: NSPredicate(value: true))
+        
+        cloudDog.perform(query, inZoneWith: nil) { (records, _) in
+            guard let records = records else { return }
+            //            guard let records = records else { return }
+            //            let sortedRecords = records.sorted(by: {$0.creationDate! > $1.creationDate!})
+            //            // akses the records pada notes
+            //            self.dogsOwner = sortedRecords
+            DispatchQueue.main.async {
+                //                 stop refresh saat ditarik
+                //                self.tableView.refreshControl?.endRefreshing()
+                self.dogList = records
+                self.tableView.refreshControl?.endRefreshing()
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellIdentifier = "ListDogTableViewCell"
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? ListDogTableViewCell else {
+            fatalError("Not working")
+        }
+        
+        let dog = dogList[indexPath.row]
+        
+        cell.dogName?.text = dog.value(forKey: "dogName") as? String
+        //        cell.radiusLabel.text = donors.address
+        //        cell.radiusLabel?.text = donors.object(forKey: "name") as? String
+        
+        return cell
+    }
+    
+    
     /*
     // MARK: - Navigation
 

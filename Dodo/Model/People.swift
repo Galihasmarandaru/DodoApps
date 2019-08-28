@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import MapKit
 
-class People {
+struct People {
     var name: String?
-    var address: String?
+    var location: CLLocation?
     var picture: UIImage?
     var password: String?
     var phoneNumber: String?
@@ -19,10 +20,10 @@ class People {
 
     init() {}
     
-    convenience init(name: String, address: String, picture: UIImage) {
+    init(name: String, location: CLLocation, picture: UIImage) {
         self.init()
         self.name = name
-        self.address = address
+        self.location = location
         self.picture = picture
     }
     
