@@ -1,38 +1,36 @@
 //
-//  ProfileTableViewController.swift
+//  DogDetailTableViewController.swift
 //  Dodo
 //
-//  Created by Gregory Kevin on 23/08/19.
+//  Created by Gregory Kevin on 27/08/19.
 //  Copyright © 2019 Galih Asmarandaru. All rights reserved.
 //
 
 import UIKit
 
-class ProfileTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class DogDetailTableViewController: UITableViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
-    @IBOutlet weak var profilePictureButton: UIButton!
-    @IBOutlet weak var profileNameLabel: UILabel!
-    @IBOutlet weak var phoneTextField: UITextField!
-    @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet var profileTableView: UITableView!
-    @IBOutlet weak var profilePictureImageView: UIImageView!
+    @IBOutlet weak var dogProfilePictureImageView: UIImageView!
+    @IBOutlet weak var dogProfilePictureButton: UIButton!
+    @IBOutlet weak var dogLastDonorLabel: UILabel!
+    @IBOutlet weak var dogNameTextField: UITextField!
+    @IBOutlet weak var dogAgeTextField: UITextField!
+    @IBOutlet weak var dogWeightTextField: UITextField!
+    @IBOutlet weak var dogBloodTypeTextField: UITextField!
+    @IBOutlet weak var dogVaccineBookButton: UIButton!
+    @IBOutlet weak var dogVaccineBookImageView: UIImageView!
+    
+    var temp = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        profilePictureButton.layer.masksToBounds = true
-        profilePictureButton.layer.cornerRadius = profilePictureButton.bounds.width / 2
-        profilePictureImageView.layer.masksToBounds = true
-        profilePictureImageView.layer.cornerRadius = profilePictureImageView.bounds.width / 2
-        
-        profileNameLabel.text = "Nama User"
-        
-        phoneTextField.text = "081720272830"
-        
-        locationLabel.text = "Tangerang Selatan"
-        
-        profileTableView.tableFooterView = UIView()
 
+        dogProfilePictureButton.layer.masksToBounds = true
+        dogProfilePictureButton.layer.cornerRadius = dogProfilePictureButton.bounds.width / 2
+        
+        dogProfilePictureImageView.layer.masksToBounds = true
+        dogProfilePictureImageView.layer.cornerRadius = dogProfilePictureImageView.bounds.width / 2
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -40,11 +38,9 @@ class ProfileTableViewController: UITableViewController, UIImagePickerController
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
-    @IBAction func donorButtonPressed(_ sender: UIButton) {
-        //
-    }
-    
-    @IBAction func profilePictureButtonPressed(_ sender: Any) {
+    @IBAction func dogProfilePictureButtonPressed(_ sender: Any) {
+        temp = 0
+        
         let alert = UIAlertController(title: "Choose Image", message: nil, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { _ in
             self.openCamera()
@@ -96,21 +92,33 @@ class ProfileTableViewController: UITableViewController, UIImagePickerController
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let pickedImage = info[.originalImage] as? UIImage {
             
-            profilePictureImageView.image = pickedImage
+            if temp == 0 {
+                dogProfilePictureImageView.image = pickedImage
+            }
+            else {
+                dogVaccineBookImageView.image = pickedImage
+            }
         }
         picker.dismiss(animated: true, completion: nil)
     }
     
-        //Check is source type available
-//        if UIImagePickerController.isSourceTypeAvailable(sourceType) {
-//
-//            let image = UIImagePickerController()
-//            image.delegate = self as! UIImagePickerControllerDelegate & UINavigationControllerDelegate
-//            image.sourceType = sourceType
-//            self.present(image, animated: true, completion: nil)
-//        }
-    
-    
+    @IBAction func dogVaccineBookButtonPressed(_ sender: Any) {
+        temp = 1
+        
+        let alert = UIAlertController(title: "Choose Image", message: nil, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { _ in
+            self.openCamera()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Gallery", style: .default, handler: { _ in
+            self.openGallery()
+        }))
+        
+        alert.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil))
+        
+        self.present(alert, animated: true, completion: nil)
+
+    }
     
     // MARK: - Table view data source
 
