@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		936004FA23178779006E8C4B /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936004F923178779006E8C4B /* CoreDataService.swift */; };
 		93992643231630BD0013D673 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93992642231630BD0013D673 /* NavigationController.swift */; };
 		93992665231680020013D673 /* View Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93992664231680020013D673 /* View Controller.swift */; };
 		93B4209223139E90000950F1 /* AuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B4208E23139E90000950F1 /* AuthController.swift */; };
@@ -55,6 +56,7 @@
 		68427ACB44F6C78B8222E97E /* Pods-Dodo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dodo.debug.xcconfig"; path = "Target Support Files/Pods-Dodo/Pods-Dodo.debug.xcconfig"; sourceTree = "<group>"; };
 		8170F7F48C4E9711CA009C26 /* Pods-Dodo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dodo.release.xcconfig"; path = "Target Support Files/Pods-Dodo/Pods-Dodo.release.xcconfig"; sourceTree = "<group>"; };
 		8ACE1DAC2A007AA825F9D3C6 /* Pods_Dodo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dodo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		936004F923178779006E8C4B /* CoreDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		93992642231630BD0013D673 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		93992664231680020013D673 /* View Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View Controller.swift"; sourceTree = "<group>"; };
 		93B4208E23139E90000950F1 /* AuthController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthController.swift; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 		CA553D97230995BD00BC82CA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				936004F923178779006E8C4B /* CoreDataService.swift */,
 				93B420B62313A11B000950F1 /* List */,
 				93B420B52313A110000950F1 /* Auth */,
 				93B420B42313A108000950F1 /* Profile */,
@@ -495,6 +498,7 @@
 				CA553D9D23099D9B00BC82CA /* People.swift in Sources */,
 				93B420A623139EC9000950F1 /* KeyChainManager.swift in Sources */,
 				93B420B02313A0FC000950F1 /* NewDogTableViewController.swift in Sources */,
+				936004FA23178779006E8C4B /* CoreDataService.swift in Sources */,
 				CA8A424B230ED8550074EA4D /* DistanceMapViewController.swift in Sources */,
 				CA553E3A230D0A6200BC82CA /* Dog.swift in Sources */,
 				93B420A423139EC9000950F1 /* Notification.swift in Sources */,
