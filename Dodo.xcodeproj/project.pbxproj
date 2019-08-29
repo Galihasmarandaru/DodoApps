@@ -43,7 +43,6 @@
 		CA8A424F230EE06A0074EA4D /* CloudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8A424E230EE06A0074EA4D /* CloudViewController.swift */; };
 		CA8CED382315E85200F93B3D /* ListDogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8CED372315E85200F93B3D /* ListDogTableViewCell.swift */; };
 		CA8CED3C23161BEF00F93B3D /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8CED3B23161BEF00F93B3D /* OnBoardingViewController.swift */; };
-		CA8CED3E23162C5800F93B3D /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8CED3D23162C5800F93B3D /* CoreDataService.swift */; };
 		CA8CED532316465400F93B3D /* chatButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8CED522316465400F93B3D /* chatButton.swift */; };
 		CA9856B123050626004170AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9856B023050626004170AA /* AppDelegate.swift */; };
 		CA9856B623050626004170AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA9856B423050626004170AA /* Main.storyboard */; };
@@ -91,7 +90,6 @@
 		CA8A424E230EE06A0074EA4D /* CloudViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudViewController.swift; sourceTree = "<group>"; };
 		CA8CED372315E85200F93B3D /* ListDogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDogTableViewCell.swift; sourceTree = "<group>"; };
 		CA8CED3B23161BEF00F93B3D /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
-		CA8CED3D23162C5800F93B3D /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		CA8CED522316465400F93B3D /* chatButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chatButton.swift; sourceTree = "<group>"; };
 		CA9856AD23050626004170AA /* Dodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA9856B023050626004170AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -243,7 +241,6 @@
 				CA553E3D230D0E2000BC82CA /* ListDogViewController.swift */,
 				CA8A424E230EE06A0074EA4D /* CloudViewController.swift */,
 				CA8CED3B23161BEF00F93B3D /* OnBoardingViewController.swift */,
-				CA8CED3D23162C5800F93B3D /* CoreDataService.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -470,7 +467,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA8CED3E23162C5800F93B3D /* CoreDataService.swift in Sources */,
 				93B420B32313A0FD000950F1 /* ProfileBeADonorTableViewController.swift in Sources */,
 				93B420B22313A0FD000950F1 /* DogListProfileTableViewController.swift in Sources */,
 				CA553D9923099A8D00BC82CA /* DonorTableViewCell.swift in Sources */,
