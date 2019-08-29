@@ -11,10 +11,12 @@ import CloudKit
 
 class DonorTableViewController: UIViewController{
     
+//    var owner = [People]()
+    
     var cloudOwner = CKContainer.default().privateCloudDatabase
     var donor = [CKRecord]()
     
-    var profilDonor = People()
+//    var profilDonor = People()
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -76,6 +78,16 @@ class DonorTableViewController: UIViewController{
     @objc func queryDatabase(){
         let query = CKQuery(recordType: "DogLover", predicate: NSPredicate(value: true))
         
+        let operation = CKQueryOperation(query: query)
+        
+        var newOwner = [People]()
+        
+        operation.recordFetchedBlock = { record in
+            let own = People()
+            own.recordID = record.recordID
+            newOwner.append(own)
+        }
+        
          cloudOwner.perform(query, inZoneWith: nil) { (records, _) in
             guard let records = records else { return }
 //            guard let records = records else { return }
@@ -85,7 +97,7 @@ class DonorTableViewController: UIViewController{
             DispatchQueue.main.async {
                 //                 stop refresh saat ditarik
 //                self.tableView.refreshControl?.endRefreshing()
-                self.donor = records 
+                self.donor = records
                 self.tableView.refreshControl?.endRefreshing()
                 self.tableView.reloadData()
             }
@@ -100,13 +112,13 @@ class DonorTableViewController: UIViewController{
 //        detailViewController.donorOwner = profilDonor[index]
 //    }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.destination is ListDogViewController {
-            let vc = segue.destination as? ListDogViewController
-            
-            vc?.userName = profilDonor.name!
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.destination is ListDogViewController {
+//            let vc = segue.destination as? ListDogViewController
+//
+//            vc?.userName = profilDonor.name!
+//        }
+//    }
 //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        tableView.deselectRow(at: indexPath, animated: true)
 //
@@ -133,7 +145,6 @@ extension DonorTableViewController: UITableViewDataSource, UITableViewDelegate
         let donors = donor[indexPath.row]
         
         cell.nameLabel?.text = donors.value(forKey: "name") as? String
-        profilDonor.name = donors.value(forKey: "name") as? String
         cell.chatButton.phoneNumber = donors.value(forKey: "phoneNumber") as! String
         //cell.radiusLabel.text = donors.address
         //cell.radiusLabel?.text = donors.object(forKey: "name") as? String
@@ -143,5 +154,39 @@ extension DonorTableViewController: UITableViewDataSource, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return donor.count
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+//        let vc = ListDogViewController()
+        
+        let donors = donor[indexPath.row]
+        
+        if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ListDogView") as? ListDogViewController {            
+            
+//            owner.append(People(recordName: donors.recordID))
+            viewController.recordID = donors.recordID
+            
+            viewController.userName = (donors.value(forKey: "name") as? String)!
+            
+//            let name = viewController.userName
+            
+//            let query = CKQuery(recordType: "Dogs", predicate: NSPredicate(value: true))
+//
+//            cloudOwner.perform(query, inZoneWith: nil) { (records, _) in
+//
+////                let v = CKRecord.Reference(record: <#T##CKRecord#>, action: <#T##CKRecord_Reference_Action#>)
+//
+//
+////                if name == records["ownerID"] {
+////
+////                }
+//            }
+
+            
+            if let navigator = navigationController {
+                navigator.pushViewController(viewController, animated: true)
+            }
+        }
     }
 }

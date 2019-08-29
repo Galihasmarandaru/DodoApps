@@ -11,10 +11,12 @@ import CloudKit
 
 class ListDogViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-//    var donorOwner: People?
+//    var owner: People!
+    
     @IBOutlet weak var nameProfilList: UILabel!
     
     var userName: String = ""
+    var recordID: CKRecord.ID!
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -22,7 +24,9 @@ class ListDogViewController: UIViewController, UITableViewDataSource, UITableVie
     var dogList = [CKRecord]()
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad()        
+        
+        print(recordID)
         
         let refreshControl = UIRefreshControl()
         //        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
@@ -45,10 +49,20 @@ class ListDogViewController: UIViewController, UITableViewDataSource, UITableVie
     
     // for show dog
     @objc func dogDatabase(){
+
+//        let reference = CKRecord.Reference(recordID: recordID, action: .deleteSelf)
+////        print(reference)
+//        let pred = NSPredicate(format: "ownerID == %@", reference)
+////        print(pred)
+//        let query = CKQuery(recordType: "Dogs", predicate: pred)
         let query = CKQuery(recordType: "Dogs", predicate: NSPredicate(value: true))
         
-        cloudDog.perform(query, inZoneWith: nil) { (records, _) in
+        print(query)
+        
+        cloudDog.perform(query, inZoneWith: nil) { [unowned self] records, _ in
             guard let records = records else { return }
+            
+            print(records)
             //            guard let records = records else { return }
             //            let sortedRecords = records.sorted(by: {$0.creationDate! > $1.creationDate!})
             //            // akses the records pada notes

@@ -8,8 +8,10 @@
 
 import UIKit
 import MapKit
+import CloudKit
 
-struct People {
+class People: NSObject {
+    var recordID: CKRecord.ID!
     var name: String?
     var location: CLLocation?
     var picture: UIImage?
@@ -18,13 +20,18 @@ struct People {
     
     var statusActivity: Transfused!
 
-    init() {}
+    override init() {}
     
-    init(name: String, location: CLLocation, picture: UIImage) {
+    convenience init(name: String, location: CLLocation, picture: UIImage) {
         self.init()
         self.name = name
         self.location = location
         self.picture = picture
+    }
+    
+    convenience init(recordName: CKRecord.ID) {
+        self.init()
+        self.recordID = recordName
     }
     
     
