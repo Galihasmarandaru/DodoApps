@@ -78,15 +78,15 @@ class DonorTableViewController: UIViewController{
     @objc func queryDatabase(){
         let query = CKQuery(recordType: "DogLover", predicate: NSPredicate(value: true))
         
-        let operation = CKQueryOperation(query: query)
+//        let operation = CKQueryOperation(query: query)
         
-        var newOwner = [People]()
+//        var newOwner = [People]()
         
-        operation.recordFetchedBlock = { record in
-            let own = People()
-            own.recordID = record.recordID
-            newOwner.append(own)
-        }
+//        operation.recordFetchedBlock = { record in
+//            let own = People()
+//            own.recordID = record.recordID
+//            newOwner.append(own)
+//        }
         
          cloudOwner.perform(query, inZoneWith: nil) { (records, _) in
             guard let records = records else { return }

@@ -171,17 +171,17 @@ class LoginController: UIViewController {
         signIn()
     }
     
-    func saveOwnerID(id: String)
+    func savePhoneNumber(phone: String)
     {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
         
         let managedContext = appDelegate.persistentContainer.viewContext
         
-        let userEntity = NSEntityDescription.entity(forEntityName: "User", in: managedContext)!
+        let userEntity = NSEntityDescription.entity(forEntityName: "DogLover", in: managedContext)!
         
         let user = NSManagedObject(entity: userEntity, insertInto: managedContext)
         
-        user.setValue(id, forKey: "ownerId")
+        user.setValue(phone, forKey: "ownerId")
         
         do {
             try managedContext.save()
