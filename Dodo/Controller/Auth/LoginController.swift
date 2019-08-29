@@ -110,6 +110,7 @@ class LoginController: UIViewController {
     
     private func signIn()
     {
+        clearCoreData()
         self.phoneErr.textColor = .clear
         self.passErr.textColor = .clear
         
@@ -137,6 +138,9 @@ class LoginController: UIViewController {
                     
                     do {
                         try AuthController.signIn(user, password: password)
+                        
+
+                        self.savePhoneNumber(phone: phone)
                     } catch{
                         print("Error signing in: \(error.localizedDescription)")
                     }
@@ -181,7 +185,7 @@ class LoginController: UIViewController {
         
         let user = NSManagedObject(entity: userEntity, insertInto: managedContext)
         
-        user.setValue(phone, forKey: "ownerId")
+        user.setValue(phone, forKey: "phoneNumber")
         
         do {
             try managedContext.save()
@@ -189,6 +193,26 @@ class LoginController: UIViewController {
             print("Could not save. \(error), \(error.userInfo)")
         }
     }
+    
+    func clearCoreData()
+    {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "DogLover")
+        fetchRequest.returnsObjectsAsFaults = false
+        do {
+            let results = try managedContext.fetch(fetchRequest)
+            for object in results {
+                guard let objectData = object as? NSManagedObject else {continue}
+                managedContext.delete(objectData)
+            }
+        } catch let error {
+            print("Detele all data in DogLover error :", error)
+        }
+    }
+    
 }
 
 extension LoginController: UITextFieldDelegate
