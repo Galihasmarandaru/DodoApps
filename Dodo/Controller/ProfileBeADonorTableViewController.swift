@@ -8,21 +8,25 @@
 
 import UIKit
 
-class ProfileBeADonorTableViewController: UITableViewController {
+class ProfileBeADonorTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-    @IBOutlet weak var profilePictureImageView: UIImageView!
+    @IBOutlet weak var profilePictureButton: UIButton!
     @IBOutlet weak var profileNameLabel: UILabel!
     @IBOutlet weak var phoneTextField: UITextField!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var dogListCell: UITableViewCell!
     @IBOutlet var profileBeADonorTableView: UITableView!
     @IBOutlet weak var dogListView: UIView!
+    @IBOutlet weak var profilePictureImageView: UIImageView!
     
     var dogList: [Donor] = []
     var test: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        profilePictureButton.layer.masksToBounds = true
+        profilePictureButton.layer.cornerRadius = profilePictureButton.bounds.width / 2
+        
         profilePictureImageView.layer.masksToBounds = true
         profilePictureImageView.layer.cornerRadius = profilePictureImageView.bounds.width / 2
         
@@ -44,6 +48,62 @@ class ProfileBeADonorTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
+    @IBAction func profilePictureButtonPressed(_ sender: Any) {
+        let alert = UIAlertController(title: "Choose Image", message: nil, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { _ in
+            self.openCamera()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Gallery", style: .default, handler: { _ in
+            self.openGallery()
+        }))
+        
+        alert.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func openCamera()
+    {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerController.SourceType.camera
+            imagePicker.allowsEditing = false
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+        else
+        {
+            let alert  = UIAlertController(title: "Warning", message: "You don't have camera", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func openGallery()
+    {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.photoLibrary){
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.allowsEditing = true
+            imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+        else
+        {
+            let alert  = UIAlertController(title: "Warning", message: "You don't have permission to access gallery.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let pickedImage = info[.originalImage] as? UIImage {
+            
+            profilePictureImageView.image = pickedImage
+        }
+        picker.dismiss(animated: true, completion: nil)
+    }
     
     // MARK: - Table view data source
 
