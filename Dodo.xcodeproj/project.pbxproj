@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		936004FA23178779006E8C4B /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936004F923178779006E8C4B /* CoreDataService.swift */; };
 		93992643231630BD0013D673 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93992642231630BD0013D673 /* NavigationController.swift */; };
 		93992665231680020013D673 /* View Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93992664231680020013D673 /* View Controller.swift */; };
 		93B4209223139E90000950F1 /* AuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B4208E23139E90000950F1 /* AuthController.swift */; };
@@ -29,6 +30,7 @@
 		93B420BB2313A14D000950F1 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B420B82313A14D000950F1 /* CustomButton.swift */; };
 		93B420BC2313A14D000950F1 /* DogListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B420BA2313A14D000950F1 /* DogListTableViewCell.swift */; };
 		9AE1F147E4395F989C2E72B9 /* Pods_Dodo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8ACE1DAC2A007AA825F9D3C6 /* Pods_Dodo.framework */; };
+		A33A32522314CB57002A263B /* DogDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33A32512314CB57002A263B /* DogDetailTableViewController.swift */; };
 		CA553D9923099A8D00BC82CA /* DonorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA553D9823099A8D00BC82CA /* DonorTableViewCell.swift */; };
 		CA553D9B23099CFC00BC82CA /* DonorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA553D9A23099CFC00BC82CA /* DonorTableViewController.swift */; };
 		CA553D9D23099D9B00BC82CA /* People.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA553D9C23099D9B00BC82CA /* People.swift */; };
@@ -43,7 +45,6 @@
 		CA8A424F230EE06A0074EA4D /* CloudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8A424E230EE06A0074EA4D /* CloudViewController.swift */; };
 		CA8CED382315E85200F93B3D /* ListDogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8CED372315E85200F93B3D /* ListDogTableViewCell.swift */; };
 		CA8CED3C23161BEF00F93B3D /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8CED3B23161BEF00F93B3D /* OnBoardingViewController.swift */; };
-		CA8CED3E23162C5800F93B3D /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8CED3D23162C5800F93B3D /* CoreDataService.swift */; };
 		CA8CED532316465400F93B3D /* chatButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8CED522316465400F93B3D /* chatButton.swift */; };
 		CA9856B123050626004170AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9856B023050626004170AA /* AppDelegate.swift */; };
 		CA9856B623050626004170AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA9856B423050626004170AA /* Main.storyboard */; };
@@ -56,6 +57,7 @@
 		68427ACB44F6C78B8222E97E /* Pods-Dodo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dodo.debug.xcconfig"; path = "Target Support Files/Pods-Dodo/Pods-Dodo.debug.xcconfig"; sourceTree = "<group>"; };
 		8170F7F48C4E9711CA009C26 /* Pods-Dodo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dodo.release.xcconfig"; path = "Target Support Files/Pods-Dodo/Pods-Dodo.release.xcconfig"; sourceTree = "<group>"; };
 		8ACE1DAC2A007AA825F9D3C6 /* Pods_Dodo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dodo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		936004F923178779006E8C4B /* CoreDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		93992642231630BD0013D673 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		93992664231680020013D673 /* View Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View Controller.swift"; sourceTree = "<group>"; };
 		93B4208E23139E90000950F1 /* AuthController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthController.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 		93B420AD2313A0FC000950F1 /* ProfileBeADonorTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileBeADonorTableViewController.swift; sourceTree = "<group>"; };
 		93B420B82313A14D000950F1 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		93B420BA2313A14D000950F1 /* DogListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DogListTableViewCell.swift; sourceTree = "<group>"; };
+		A33A32512314CB57002A263B /* DogDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DogDetailTableViewController.swift; sourceTree = "<group>"; };
 		CA553D9823099A8D00BC82CA /* DonorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonorTableViewCell.swift; sourceTree = "<group>"; };
 		CA553D9A23099CFC00BC82CA /* DonorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonorTableViewController.swift; sourceTree = "<group>"; };
 		CA553D9C23099D9B00BC82CA /* People.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = People.swift; sourceTree = "<group>"; };
@@ -91,7 +94,6 @@
 		CA8A424E230EE06A0074EA4D /* CloudViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudViewController.swift; sourceTree = "<group>"; };
 		CA8CED372315E85200F93B3D /* ListDogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDogTableViewCell.swift; sourceTree = "<group>"; };
 		CA8CED3B23161BEF00F93B3D /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
-		CA8CED3D23162C5800F93B3D /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		CA8CED522316465400F93B3D /* chatButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chatButton.swift; sourceTree = "<group>"; };
 		CA9856AD23050626004170AA /* Dodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA9856B023050626004170AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 		CA553D97230995BD00BC82CA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				A33A32512314CB57002A263B /* DogDetailTableViewController.swift */,
 				93B420B62313A11B000950F1 /* List */,
 				93B420B52313A110000950F1 /* Auth */,
 				93B420B42313A108000950F1 /* Profile */,
@@ -243,7 +246,6 @@
 				CA553E3D230D0E2000BC82CA /* ListDogViewController.swift */,
 				CA8A424E230EE06A0074EA4D /* CloudViewController.swift */,
 				CA8CED3B23161BEF00F93B3D /* OnBoardingViewController.swift */,
-				CA8CED3D23162C5800F93B3D /* CoreDataService.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -470,7 +472,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA8CED3E23162C5800F93B3D /* CoreDataService.swift in Sources */,
 				93B420B32313A0FD000950F1 /* ProfileBeADonorTableViewController.swift in Sources */,
 				93B420B22313A0FD000950F1 /* DogListProfileTableViewController.swift in Sources */,
 				CA553D9923099A8D00BC82CA /* DonorTableViewCell.swift in Sources */,
@@ -497,8 +498,10 @@
 				93B4209323139E90000950F1 /* ProfileDonorViewController.swift in Sources */,
 				CA8CED3C23161BEF00F93B3D /* OnBoardingViewController.swift in Sources */,
 				CA553D9D23099D9B00BC82CA /* People.swift in Sources */,
+				A33A32522314CB57002A263B /* DogDetailTableViewController.swift in Sources */,
 				93B420A623139EC9000950F1 /* KeyChainManager.swift in Sources */,
 				93B420B02313A0FC000950F1 /* NewDogTableViewController.swift in Sources */,
+				936004FA23178779006E8C4B /* CoreDataService.swift in Sources */,
 				CA8A424B230ED8550074EA4D /* DistanceMapViewController.swift in Sources */,
 				CA553E3A230D0A6200BC82CA /* Dog.swift in Sources */,
 				93B420A423139EC9000950F1 /* Notification.swift in Sources */,

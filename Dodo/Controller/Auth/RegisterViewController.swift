@@ -122,7 +122,7 @@ class RegisterViewController: UIViewController {
             {
                 DispatchQueue.main.async {
                     let salt = "xhakgl1m4jl0kal8=gma0.m"
-                    let user = People()
+                    var user = People()
                     
                     let password : String = self.passTxt.text!
                     

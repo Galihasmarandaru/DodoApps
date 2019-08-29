@@ -9,14 +9,20 @@
 import UIKit
 import CloudKit
 
-class NewDogTableViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class NewDogTableViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
-    @IBOutlet weak var dogImageView: UIImageView!
+    @IBOutlet weak var dogProfilePictureImageView: UIImageView!
+    @IBOutlet weak var dogPictureButton: UIButton!
     @IBOutlet weak var dogNameTextField: UITextField!
     @IBOutlet weak var dogAgeTextField: UITextField!
     @IBOutlet weak var dogWeightTextField: UITextField!
     @IBOutlet weak var dogBloodTypeTextField: UITextField!
     @IBOutlet weak var dogLastDonorTextField: UITextField!
+    @IBOutlet weak var uploadVaccineBookButton: UIButton!
+    @IBOutlet weak var vaccineBookImageView: UIImageView!
+    @IBOutlet weak var vaccineBookButton: UIButton!
+    @IBOutlet weak var newDogTableView: UITableView!
+    @IBOutlet weak var vaccineBookView: UIView!
     
     var cloudDog = CKContainer.default().privateCloudDatabase
     
@@ -32,18 +38,101 @@ class NewDogTableViewController: UITableViewController, UIPickerViewDelegate, UI
     var dogWeight: Int64?
     var dogBloodType = ""
     var dogLastDonor = ""
+    var temp = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        dogImageView.layer.masksToBounds = true
-        dogImageView.layer.cornerRadius = dogImageView.bounds.width / 2
+        dogPictureButton.layer.masksToBounds = true
+        dogPictureButton.layer.cornerRadius = dogPictureButton.bounds.width / 2
+        
+        dogProfilePictureImageView.layer.masksToBounds = true
+        dogProfilePictureImageView.layer.cornerRadius = dogProfilePictureImageView.bounds.width / 2
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    @IBAction func vaccineBookButtonPressed(_ sender: Any) {
+        temp = 1
+        let alert = UIAlertController(title: "Choose Image", message: nil, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { _ in
+            self.openCamera()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Gallery", style: .default, handler: { _ in
+            self.openGallery()
+        }))
+        
+        alert.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func dogPictureButtonPressed(_ sender: Any) {
+        temp = 0
+        
+        let alert = UIAlertController(title: "Choose Image", message: nil, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { _ in
+            self.openCamera()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Gallery", style: .default, handler: { _ in
+            self.openGallery()
+        }))
+        
+        alert.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func openCamera()
+    {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerController.SourceType.camera
+            imagePicker.allowsEditing = false
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+        else
+        {
+            let alert  = UIAlertController(title: "Warning", message: "You don't have camera", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func openGallery()
+    {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.photoLibrary){
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.allowsEditing = true
+            imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+        else
+        {
+            let alert  = UIAlertController(title: "Warning", message: "You don't have permission to access gallery.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let pickedImage = info[.originalImage] as? UIImage {
+            if temp == 0 {
+                dogProfilePictureImageView.image = pickedImage
+            }
+            else {
+                vaccineBookImageView.image = pickedImage
+            }
+        }
+        picker.dismiss(animated: true, completion: nil)
     }
     
     func setDogWeightPicker() {
@@ -117,10 +206,6 @@ class NewDogTableViewController: UITableViewController, UIPickerViewDelegate, UI
     
     @IBAction func dogBloodTypeEditingDidBegin(_ sender: UITextField) {
         setDogBloodTypePicker()
-    }
-    
-    @IBAction func uploadVaccineBookPressed(_ sender: UIButton) {
-        
     }
     
     @IBAction func saveButtonPressed(_ sender: UIButton) {
