@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		936004FA23178779006E8C4B /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936004F923178779006E8C4B /* CoreDataService.swift */; };
 		93992643231630BD0013D673 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93992642231630BD0013D673 /* NavigationController.swift */; };
 		93992665231680020013D673 /* View Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93992664231680020013D673 /* View Controller.swift */; };
 		93B4209223139E90000950F1 /* AuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B4208E23139E90000950F1 /* AuthController.swift */; };
@@ -31,6 +30,11 @@
 		93B420BC2313A14D000950F1 /* DogListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B420BA2313A14D000950F1 /* DogListTableViewCell.swift */; };
 		9AE1F147E4395F989C2E72B9 /* Pods_Dodo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8ACE1DAC2A007AA825F9D3C6 /* Pods_Dodo.framework */; };
 		A33A32522314CB57002A263B /* DogDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33A32512314CB57002A263B /* DogDetailTableViewController.swift */; };
+		CA281A8F2317A37C003EA8AE /* SetupImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA281A8E2317A37C003EA8AE /* SetupImage.swift */; };
+		CA281A932318E680003EA8AE /* DropboxImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA281A922318E680003EA8AE /* DropboxImage.swift */; };
+		CA281A962319883B003EA8AE /* Slide.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA281A952319883B003EA8AE /* Slide.xib */; };
+		CA281A98231988A6003EA8AE /* Slide.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA281A97231988A6003EA8AE /* Slide.swift */; };
+		CA281A9B231989A4003EA8AE /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA281A9A231989A4003EA8AE /* OnBoardingViewController.swift */; };
 		CA553D9923099A8D00BC82CA /* DonorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA553D9823099A8D00BC82CA /* DonorTableViewCell.swift */; };
 		CA553D9B23099CFC00BC82CA /* DonorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA553D9A23099CFC00BC82CA /* DonorTableViewController.swift */; };
 		CA553D9D23099D9B00BC82CA /* People.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA553D9C23099D9B00BC82CA /* People.swift */; };
@@ -44,7 +48,6 @@
 		CA8A424D230EDF850074EA4D /* MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8A424C230EDF850074EA4D /* MapModel.swift */; };
 		CA8A424F230EE06A0074EA4D /* CloudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8A424E230EE06A0074EA4D /* CloudViewController.swift */; };
 		CA8CED382315E85200F93B3D /* ListDogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8CED372315E85200F93B3D /* ListDogTableViewCell.swift */; };
-		CA8CED3C23161BEF00F93B3D /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8CED3B23161BEF00F93B3D /* OnBoardingViewController.swift */; };
 		CA8CED532316465400F93B3D /* chatButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8CED522316465400F93B3D /* chatButton.swift */; };
 		CA9856B123050626004170AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9856B023050626004170AA /* AppDelegate.swift */; };
 		CA9856B623050626004170AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA9856B423050626004170AA /* Main.storyboard */; };
@@ -57,7 +60,6 @@
 		68427ACB44F6C78B8222E97E /* Pods-Dodo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dodo.debug.xcconfig"; path = "Target Support Files/Pods-Dodo/Pods-Dodo.debug.xcconfig"; sourceTree = "<group>"; };
 		8170F7F48C4E9711CA009C26 /* Pods-Dodo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dodo.release.xcconfig"; path = "Target Support Files/Pods-Dodo/Pods-Dodo.release.xcconfig"; sourceTree = "<group>"; };
 		8ACE1DAC2A007AA825F9D3C6 /* Pods_Dodo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dodo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		936004F923178779006E8C4B /* CoreDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		93992642231630BD0013D673 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		93992664231680020013D673 /* View Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View Controller.swift"; sourceTree = "<group>"; };
 		93B4208E23139E90000950F1 /* AuthController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthController.swift; sourceTree = "<group>"; };
@@ -80,6 +82,11 @@
 		93B420B82313A14D000950F1 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		93B420BA2313A14D000950F1 /* DogListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DogListTableViewCell.swift; sourceTree = "<group>"; };
 		A33A32512314CB57002A263B /* DogDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DogDetailTableViewController.swift; sourceTree = "<group>"; };
+		CA281A8E2317A37C003EA8AE /* SetupImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SetupImage.swift; path = Dodo/Controller/SetupImage.swift; sourceTree = SOURCE_ROOT; };
+		CA281A922318E680003EA8AE /* DropboxImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropboxImage.swift; sourceTree = "<group>"; };
+		CA281A952319883B003EA8AE /* Slide.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Slide.xib; sourceTree = "<group>"; };
+		CA281A97231988A6003EA8AE /* Slide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slide.swift; sourceTree = "<group>"; };
+		CA281A9A231989A4003EA8AE /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
 		CA553D9823099A8D00BC82CA /* DonorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonorTableViewCell.swift; sourceTree = "<group>"; };
 		CA553D9A23099CFC00BC82CA /* DonorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonorTableViewController.swift; sourceTree = "<group>"; };
 		CA553D9C23099D9B00BC82CA /* People.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = People.swift; sourceTree = "<group>"; };
@@ -93,7 +100,6 @@
 		CA8A424C230EDF850074EA4D /* MapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModel.swift; sourceTree = "<group>"; };
 		CA8A424E230EE06A0074EA4D /* CloudViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudViewController.swift; sourceTree = "<group>"; };
 		CA8CED372315E85200F93B3D /* ListDogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDogTableViewCell.swift; sourceTree = "<group>"; };
-		CA8CED3B23161BEF00F93B3D /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
 		CA8CED522316465400F93B3D /* chatButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chatButton.swift; sourceTree = "<group>"; };
 		CA9856AD23050626004170AA /* Dodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA9856B023050626004170AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -197,6 +203,32 @@
 			path = "Dog List";
 			sourceTree = "<group>";
 		};
+		CA281A902318E65F003EA8AE /* Handle Image */ = {
+			isa = PBXGroup;
+			children = (
+				CA281A922318E680003EA8AE /* DropboxImage.swift */,
+			);
+			path = "Handle Image";
+			sourceTree = "<group>";
+		};
+		CA281A94231987C0003EA8AE /* OnBoarding */ = {
+			isa = PBXGroup;
+			children = (
+				CA281A992319898A003EA8AE /* View */,
+				CA281A9A231989A4003EA8AE /* OnBoardingViewController.swift */,
+			);
+			path = OnBoarding;
+			sourceTree = "<group>";
+		};
+		CA281A992319898A003EA8AE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CA281A952319883B003EA8AE /* Slide.xib */,
+				CA281A97231988A6003EA8AE /* Slide.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		CA553D95230995A800BC82CA /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -210,6 +242,8 @@
 		CA553D96230995B600BC82CA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CA281A94231987C0003EA8AE /* OnBoarding */,
+				CA281A902318E65F003EA8AE /* Handle Image */,
 				CA8CED3F23162E7B00F93B3D /* Core Data */,
 				93B420B72313A14D000950F1 /* Button */,
 				93B420B92313A14D000950F1 /* Dog List */,
@@ -245,7 +279,6 @@
 				CA553D9A23099CFC00BC82CA /* DonorTableViewController.swift */,
 				CA553E3D230D0E2000BC82CA /* ListDogViewController.swift */,
 				CA8A424E230EE06A0074EA4D /* CloudViewController.swift */,
-				CA8CED3B23161BEF00F93B3D /* OnBoardingViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -261,6 +294,7 @@
 		CA553DA12309B0B400BC82CA /* View Profil Donor */ = {
 			isa = PBXGroup;
 			children = (
+				CA281A8E2317A37C003EA8AE /* SetupImage.swift */,
 			);
 			path = "View Profil Donor";
 			sourceTree = "<group>";
@@ -416,6 +450,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA281A962319883B003EA8AE /* Slide.xib in Resources */,
 				CA553E38230D080200BC82CA /* Authentication.storyboard in Resources */,
 				CA553E36230D06BD00BC82CA /* Profile.storyboard in Resources */,
 				CA9856BB23050627004170AA /* Assets.xcassets in Resources */,
@@ -472,6 +507,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA281A9B231989A4003EA8AE /* OnBoardingViewController.swift in Sources */,
+				CA281A932318E680003EA8AE /* DropboxImage.swift in Sources */,
 				93B420B32313A0FD000950F1 /* ProfileBeADonorTableViewController.swift in Sources */,
 				93B420B22313A0FD000950F1 /* DogListProfileTableViewController.swift in Sources */,
 				CA553D9923099A8D00BC82CA /* DonorTableViewCell.swift in Sources */,
@@ -496,12 +533,10 @@
 				93992665231680020013D673 /* View Controller.swift in Sources */,
 				CA8A424D230EDF850074EA4D /* MapModel.swift in Sources */,
 				93B4209323139E90000950F1 /* ProfileDonorViewController.swift in Sources */,
-				CA8CED3C23161BEF00F93B3D /* OnBoardingViewController.swift in Sources */,
 				CA553D9D23099D9B00BC82CA /* People.swift in Sources */,
 				A33A32522314CB57002A263B /* DogDetailTableViewController.swift in Sources */,
 				93B420A623139EC9000950F1 /* KeyChainManager.swift in Sources */,
 				93B420B02313A0FC000950F1 /* NewDogTableViewController.swift in Sources */,
-				936004FA23178779006E8C4B /* CoreDataService.swift in Sources */,
 				CA8A424B230ED8550074EA4D /* DistanceMapViewController.swift in Sources */,
 				CA553E3A230D0A6200BC82CA /* Dog.swift in Sources */,
 				93B420A423139EC9000950F1 /* Notification.swift in Sources */,
@@ -510,6 +545,8 @@
 				CA8A424F230EE06A0074EA4D /* CloudViewController.swift in Sources */,
 				CA9856B923050626004170AA /* Dodo.xcdatamodeld in Sources */,
 				93B420B12313A0FC000950F1 /* NewDogViewController.swift in Sources */,
+				CA281A8F2317A37C003EA8AE /* SetupImage.swift in Sources */,
+				CA281A98231988A6003EA8AE /* Slide.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

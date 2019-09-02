@@ -53,9 +53,11 @@ class DistanceMapViewController: UIViewController {
     }
 
     
-    func getDistance(userLocation: CLLocation, donorLocation: CLLocation) {
-        let distance = userLocation.distance(from: donorLocation)
+    func getDistance(donorLocation: CLLocation) -> String {
+        let distance = userLocation!.distance(from: donorLocation)
         theDistance = "\(Double(round(1000*distance)/1000)) km"
+        
+        return theDistance!
     }
 }
 

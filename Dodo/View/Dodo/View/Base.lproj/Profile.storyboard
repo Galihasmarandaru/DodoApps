@@ -766,7 +766,7 @@
                                         <rect key="frame" x="0.0" y="1066" width="414" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="f2P-gs-gWu" id="Bdt-3f-54M">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="199.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WMy-lc-5cZ" customClass="customButton" customModule="Dodo" customModuleProvider="target">
@@ -860,6 +860,6 @@
         <image name="Profile" width="16" height="18.5"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="8Qn-gO-MO1"/>
+        <segue reference="yMP-qZ-TtM"/>
     </inferredMetricsTieBreakers>
 </document>

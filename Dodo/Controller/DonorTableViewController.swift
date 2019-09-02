@@ -8,15 +8,14 @@
 
 import UIKit
 import CloudKit
+import SwiftyDropbox
 
 class DonorTableViewController: UIViewController{
-    
-//    var owner = [People]()
     
     var cloudOwner = CKContainer.default().privateCloudDatabase
     var donor = [CKRecord]()
     
-//    var profilDonor = People()
+    var distance = DistanceMapViewController()
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -24,108 +23,38 @@ class DonorTableViewController: UIViewController{
         super.viewDidLoad()
         
         let refreshControl = UIRefreshControl()
-//        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refreshControl.addTarget(self, action: #selector(queryDatabase), for: .valueChanged)
         self.tableView.refreshControl = refreshControl
-
-//        let distance = DistanceMapViewController()
-//        
-//        distance.checkLocationAuthorization()
-//        print(distance.centerViewOnUserLocation())
-        
-//        let addButton = UIBarButtonItem(image: UIImage(named: "Logo Blood Hero"), style: .done, target: self, action: #selector(tapButton))
         
         self.navigationController?.navigationBar.prefersLargeTitles = true
-//        // custom button navigation
-//        let button: UIButton = UIButton(type: .custom)
-//        button.setImage(UIImage(named: "Logo Blood Hero"), for: .normal)
-//        button.addTarget(self, action: #selector(tapButton), for: .touchUpInside)
-////        button.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
-//        
-//        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
+        
+//        var donorTableCell = DonorTableViewCell()
+//        donorTableCell.imageDonor.layer.cornerRadius = donorTableCell.imageDonor.frame.height/2
+        
+
         queryDatabase()
-//        queryDatabase()
-//        loadDonor()
+
     }
-//
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//
-//
-//    }
-    
-//    override func viewWillAppear(_ animated: Bool) {
-////        queryDatabase()
-//    }
-//
     @objc func tapButton() {
         print("youu tap!")
     }
 
     // MARK: - Table view data source
     
-    
-//    private func loadDonor() {
-//        let photo1 = UIImage(named: "Dodo")
-    
-//        let donor1 = People(name: "Budi", address: , picture: photo1!)
-        
-//        donor += [donor1]
-        
-//    }
-    
     // for show owner dog
     @objc func queryDatabase(){
         let query = CKQuery(recordType: "DogLover", predicate: NSPredicate(value: true))
         
-//        let operation = CKQueryOperation(query: query)
-        
-//        var newOwner = [People]()
-        
-//        operation.recordFetchedBlock = { record in
-//            let own = People()
-//            own.recordID = record.recordID
-//            newOwner.append(own)
-//        }
-        
          cloudOwner.perform(query, inZoneWith: nil) { (records, _) in
             guard let records = records else { return }
-//            guard let records = records else { return }
-//            let sortedRecords = records.sorted(by: {$0.creationDate! > $1.creationDate!})
-//            // akses the records pada notes
-//            self.dogsOwner = sortedRecords
+
             DispatchQueue.main.async {
-                //                 stop refresh saat ditarik
-//                self.tableView.refreshControl?.endRefreshing()
                 self.donor = records
                 self.tableView.refreshControl?.endRefreshing()
                 self.tableView.reloadData()
             }
         }
     }
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        guard let detailViewController = segue.destination as? ListDogViewController,
-//            let index = tableView.indexPathForSelectedRow?.row
-//            else {
-//                return
-//        }
-//        detailViewController.donorOwner = profilDonor[index]
-//    }
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.destination is ListDogViewController {
-//            let vc = segue.destination as? ListDogViewController
-//
-//            vc?.userName = profilDonor.name!
-//        }
-//    }
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        tableView.deselectRow(at: indexPath, animated: true)
-//
-//        let profilDonor = storyboard?.instantiateViewController(withIdentifier: "ListDogViewController") as! ListDogViewController
-//
-//        profilDonor.ownerName = donor[indexPath.row]
-//    }
 }
 
 extension DonorTableViewController: UITableViewDataSource, UITableViewDelegate
@@ -144,7 +73,21 @@ extension DonorTableViewController: UITableViewDataSource, UITableViewDelegate
         
         let donors = donor[indexPath.row]
         
-        cell.nameLabel?.text = donors.value(forKey: "name") as? String
+//        DispatchQueue.global(qos: .background).async {
+            cell.nameLabel?.text = donors.value(forKey: "name") as? String
+//        }
+//        cell.radiusLabel?.text = distance.getDistance(donorLocation: donors.value(forKey: "location") as! CLLocation)
+        
+            cell.imageDonor.layer.cornerRadius = cell.imageDonor.frame.height/2
+//        DispatchQueue.global(qos: .background).async {
+            if let asset = donors.value(forKey: "image") as? CKAsset,
+                let data = try? Data(contentsOf: asset.fileURL!)
+            {
+                cell.imageDonor.image = UIImage(data: data)
+            }
+//        }
+
+//        cell.imageDonor.image = donors.value(forKey: "image") as? UIImage
         cell.chatButton.phoneNumber = donors.value(forKey: "phoneNumber") as! String
         //cell.radiusLabel.text = donors.address
         //cell.radiusLabel?.text = donors.object(forKey: "name") as? String
@@ -164,29 +107,32 @@ extension DonorTableViewController: UITableViewDataSource, UITableViewDelegate
         
         if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ListDogView") as? ListDogViewController {            
             
-//            owner.append(People(recordName: donors.recordID))
             viewController.recordID = donors.recordID
             
             viewController.userName = (donors.value(forKey: "name") as? String)!
+//            viewController.imageOwner = (donors.value(forKey: "image") as? UIImage)!
             
-//            let name = viewController.userName
+//            cell.imageDonor.layer.cornerRadius = cell.imageDonor.frame.height/2        
             
-//            let query = CKQuery(recordType: "Dogs", predicate: NSPredicate(value: true))
-//
-//            cloudOwner.perform(query, inZoneWith: nil) { (records, _) in
-//
-////                let v = CKRecord.Reference(record: <#T##CKRecord#>, action: <#T##CKRecord_Reference_Action#>)
-//
-//
-////                if name == records["ownerID"] {
-////
-////                }
-//            }
+            if let asset = donors.value(forKey: "image") as? CKAsset,
+                let data = try? Data(contentsOf: asset.fileURL!)
+            {
+                viewController.imageOwner = UIImage(data: data)
+            }
+
 
             
             if let navigator = navigationController {
                 navigator.pushViewController(viewController, animated: true)
             }
         }
+    }
+    
+    func myButtonInControllerPressed() {
+        DropboxClientsManager.authorizeFromController(UIApplication.shared,
+                                                      controller: self,
+                                                      openURL: { (url: URL) -> Void in
+                                                        UIApplication.shared.openURL(url)
+        })
     }
 }

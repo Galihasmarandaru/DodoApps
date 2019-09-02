@@ -18,7 +18,7 @@ class DonorTableViewCell: UITableViewCell{
     
     override func awakeFromNib() {
         super.awakeFromNib()
-    }
+    }    
     
     @IBAction func chatBtnPressed(_ sender: chatButton) {
         let whatsappURL = URL(string: "https://api.whatsapp.com/send?phone=62" + chatButton.phoneNumber + "&text=hello%20boi")

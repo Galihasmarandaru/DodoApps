@@ -9,6 +9,50 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--On Boarding View Controller-->
+        <scene sceneID="7Vf-0L-jKY">
+            <objects>
+                <viewController id="brN-le-cXQ" customClass="OnBoardingViewController" customModule="Dodo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3Xs-7b-fW0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="ar1-Yf-Byc">
+                                <rect key="frame" x="187.5" y="815" width="39" height="37"/>
+                            </pageControl>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OOL-dl-gFp">
+                                <rect key="frame" x="0.0" y="-1" width="414" height="896"/>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IkK-9F-Lok">
+                                <rect key="frame" x="183" y="777" width="68" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="OOL-dl-gFp" firstAttribute="width" secondItem="3Xs-7b-fW0" secondAttribute="width" id="1Sw-BG-atv"/>
+                            <constraint firstItem="nbN-JI-NwG" firstAttribute="trailing" secondItem="ar1-Yf-Byc" secondAttribute="trailing" constant="187.5" id="2ba-KO-JS0"/>
+                            <constraint firstItem="ar1-Yf-Byc" firstAttribute="bottom" secondItem="nbN-JI-NwG" secondAttribute="bottom" constant="-10" id="5DQ-R5-mGT"/>
+                            <constraint firstItem="nbN-JI-NwG" firstAttribute="centerY" secondItem="OOL-dl-gFp" secondAttribute="centerY" constant="6" id="5HB-Il-fS2"/>
+                            <constraint firstItem="ar1-Yf-Byc" firstAttribute="top" secondItem="IkK-9F-Lok" secondAttribute="bottom" constant="8" id="5ht-8t-9nA"/>
+                            <constraint firstItem="nbN-JI-NwG" firstAttribute="centerX" secondItem="OOL-dl-gFp" secondAttribute="centerX" id="Eat-Gs-2xK"/>
+                            <constraint firstItem="ar1-Yf-Byc" firstAttribute="leading" secondItem="nbN-JI-NwG" secondAttribute="leading" constant="187.5" id="HlU-a9-oWP"/>
+                            <constraint firstItem="OOL-dl-gFp" firstAttribute="height" secondItem="3Xs-7b-fW0" secondAttribute="height" id="VRv-yC-MHi"/>
+                            <constraint firstItem="nbN-JI-NwG" firstAttribute="trailing" secondItem="IkK-9F-Lok" secondAttribute="trailing" constant="163" id="pgb-qC-TFw"/>
+                            <constraint firstItem="IkK-9F-Lok" firstAttribute="leading" secondItem="nbN-JI-NwG" secondAttribute="leading" constant="183" id="tMi-Ud-asW"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="nbN-JI-NwG"/>
+                    </view>
+                    <connections>
+                        <outlet property="buttonView" destination="IkK-9F-Lok" id="hK4-gQ-3BV"/>
+                        <outlet property="pageControl" destination="ar1-Yf-Byc" id="F3Q-TI-pTA"/>
+                        <outlet property="scrollView" destination="OOL-dl-gFp" id="DPz-9U-jsY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="78B-xP-RAm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1436.2318840579712" y="5.3571428571428568"/>
+        </scene>
         <!--Login Controller-->
         <scene sceneID="JPd-Bn-i7y">
             <objects>
@@ -260,4 +304,7 @@
             <point key="canvasLocation" x="210" y="9"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="54y-y5-U0t"/>
+    </inferredMetricsTieBreakers>
 </document>
