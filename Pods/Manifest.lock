@@ -5,6 +5,7 @@ PODS:
     - Alamofire (~> 4.8.2)
 
 DEPENDENCIES:
+  - Alamofire
   - CryptoSwift
   - SwiftyDropbox
 
@@ -19,6 +20,6 @@ SPEC CHECKSUMS:
   CryptoSwift: d81eeaa59dc5a8d03720fe919a6fd07b51f7439f
   SwiftyDropbox: 7ca4961e0340c62c8d6d1ece91d67badfe4c0380
 
-PODFILE CHECKSUM: cf13309b64275b3ee575f5cd78b61f118b075fc5
+PODFILE CHECKSUM: 1b64002bce63eff1c94a147d05ee78743ac119e9
 
 COCOAPODS: 1.7.5

@@ -10,5 +10,6 @@ target 'Dodo' do
   # Pods for Dodo
 	pod 'CryptoSwift'
   pod 'SwiftyDropbox'
-
+  pod 'Alamofire'
+  
 end
