@@ -12,7 +12,9 @@ import SwiftyDropbox
 
 class DonorTableViewController: UIViewController{
     
-    var cloudOwner = CKContainer.default().privateCloudDatabase
+//    var owner = [People]()
+    
+    var cloudOwner = CKContainer.default().publicCloudDatabase
     var donor = [CKRecord]()
     
     var distance = DistanceMapViewController()
@@ -89,6 +91,22 @@ extension DonorTableViewController: UITableViewDataSource, UITableViewDelegate
 
 //        cell.imageDonor.image = donors.value(forKey: "image") as? UIImage
         cell.chatButton.phoneNumber = donors.value(forKey: "phoneNumber") as! String
+        
+        cell.chatButtonAction = { [unowned self] in
+            if AuthController.isSignedIn
+            {
+                print("abc")
+                let whatsappURL = URL(string: "https://api.whatsapp.com/send?phone=62" + cell.chatButton.phoneNumber + "&text=hello%20boi")
+                if UIApplication.shared.canOpenURL(whatsappURL!) {
+                    UIApplication.shared.open(whatsappURL!, options: .init(), completionHandler: nil)
+                }
+            }
+            else
+            {
+                NavigationController.navigate(vc: self, storyboard: "Authentication", to: "registerVC")
+            }
+        }
+        
         //cell.radiusLabel.text = donors.address
         //cell.radiusLabel?.text = donors.object(forKey: "name") as? String
         

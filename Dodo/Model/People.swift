@@ -17,6 +17,7 @@ class People: NSObject {
     var picture: UIImage?
     var password: String?
     var phoneNumber: String?
+    var isDonor: Int64?
     
     var statusActivity: Transfused!
 

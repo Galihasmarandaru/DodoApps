@@ -293,7 +293,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="BEv-nD-Nmg">
             <objects>
-                <tabBarController storyboardIdentifier="UITabBarController-LZ5-tm-lEc" automaticallyAdjustsScrollViewInsets="NO" id="LZ5-tm-lEc" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="UITabBarController-LZ5-tm-lEc" automaticallyAdjustsScrollViewInsets="NO" id="LZ5-tm-lEc" customClass="TabBarController" customModule="Dodo" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4g8-H1-cnS">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>

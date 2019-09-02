@@ -73,12 +73,23 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="eFI-Q9-SCR" customClass="customTextField" customModule="Dodo" customModuleProvider="target">
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="VPp-eO-QRd">
                                                 <rect key="frame" x="0.0" y="36.5" width="314" height="30"/>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="phonePad"/>
-                                            </textField>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+62" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GJN-6N-7BB">
+                                                        <rect key="frame" x="0.0" y="0.0" width="31" height="30"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="eFI-Q9-SCR" customClass="customTextField" customModule="Dodo" customModuleProvider="target">
+                                                        <rect key="frame" x="47" y="0.0" width="267" height="30"/>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="phonePad"/>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pgd-jO-1Kl">
                                                 <rect key="frame" x="0.0" y="82.5" width="314" height="14.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
@@ -133,6 +144,15 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nSB-K4-rFX">
+                                <rect key="frame" x="352" y="44" width="39" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Close"/>
+                                <connections>
+                                    <action selector="closePressed:" destination="RzJ-M1-hWq" eventType="touchUpInside" id="PdO-sF-Qim"/>
+                                    <action selector="closePressed:" destination="kKv-QK-r4B" eventType="touchUpInside" id="rjX-2i-K8Z"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -150,13 +170,14 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lMv-ZL-BFB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="RzJ-M1-hWq" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-522" y="9"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="9bF-UW-1cE">
             <objects>
-                <viewController id="06h-yX-sr0" customClass="RegisterViewController" customModule="Dodo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="registerVC" storyboardIdentifier="registerVC" id="06h-yX-sr0" customClass="RegisterViewController" customModule="Dodo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="udn-Kz-AYJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -196,12 +217,23 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="apD-Uk-Y73" customClass="customTextField" customModule="Dodo" customModuleProvider="target">
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="BNX-AW-GYI">
                                                 <rect key="frame" x="0.0" y="36.5" width="314" height="30"/>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
-                                            </textField>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+62" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3w5-wP-kiM">
+                                                        <rect key="frame" x="0.0" y="0.0" width="31" height="30"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="apD-Uk-Y73" customClass="customTextField" customModule="Dodo" customModuleProvider="target">
+                                                        <rect key="frame" x="47" y="0.0" width="267" height="30"/>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="phonePad"/>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oPW-hp-FGO">
                                                 <rect key="frame" x="0.0" y="82.5" width="314" height="14.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
@@ -223,7 +255,7 @@
                                                 <rect key="frame" x="0.0" y="36.5" width="314" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HW2-L2-dOw">
                                                 <rect key="frame" x="0.0" y="82.5" width="314" height="14.5"/>
@@ -246,7 +278,7 @@
                                                 <rect key="frame" x="0.0" y="36.5" width="314" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8aA-hO-ns6">
                                                 <rect key="frame" x="0.0" y="82.5" width="314" height="14.5"/>
@@ -279,12 +311,20 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ze5-Y8-q9d">
+                                <rect key="frame" x="355" y="44" width="39" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Close"/>
+                                <connections>
+                                    <action selector="closePressed:" destination="06h-yX-sr0" eventType="touchUpInside" id="bBB-mh-Xiq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="gHi-tb-BjW" firstAttribute="centerY" secondItem="udn-Kz-AYJ" secondAttribute="centerY" id="0jb-Qb-bOu"/>
-                            <constraint firstItem="gHi-tb-BjW" firstAttribute="leading" secondItem="OdI-de-wSn" secondAttribute="leading" constant="50" id="E1M-j0-YW7"/>
-                            <constraint firstItem="OdI-de-wSn" firstAttribute="trailing" secondItem="gHi-tb-BjW" secondAttribute="trailing" constant="50" id="Tjd-a3-sSc"/>
+                            <constraint firstItem="gHi-tb-BjW" firstAttribute="centerY" secondItem="udn-Kz-AYJ" secondAttribute="centerY" id="TZo-XH-Fwr"/>
+                            <constraint firstItem="gHi-tb-BjW" firstAttribute="leading" secondItem="OdI-de-wSn" secondAttribute="leading" constant="50" id="b07-99-Aog"/>
+                            <constraint firstItem="OdI-de-wSn" firstAttribute="trailing" secondItem="gHi-tb-BjW" secondAttribute="trailing" constant="50" id="fS9-aI-291"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="OdI-de-wSn"/>
                     </view>
@@ -301,7 +341,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tBx-7s-enh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="210" y="9"/>
+            <point key="canvasLocation" x="209" y="9"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

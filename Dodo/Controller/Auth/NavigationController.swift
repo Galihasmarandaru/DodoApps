@@ -24,6 +24,11 @@ final class NavigationController: UIViewController {
         vc.present(view, animated: false, completion: nil)
     }
     
+    class func navigateToHome(vc: UIViewController)
+    {
+        navigate(vc: vc, storyboard: "Main", to: "UITabBarController-LZ5-tm-lEc")
+    }
+    
     /*
     // MARK: - Navigation
 

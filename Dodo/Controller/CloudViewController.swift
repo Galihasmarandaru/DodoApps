@@ -24,7 +24,7 @@ final class CloudViewController {
         newRecord.setValue(user.name, forKey: "name")
         newRecord.setValue(user.phoneNumber, forKey: "phoneNumber")
         newRecord.setValue(user.password, forKey: "password")
-        
+        newRecord.setValue(user.isDonor, forKey: "isDonor")
         pDatabase.save(newRecord) { (record, _) in
             guard record != nil else { return }
         }
