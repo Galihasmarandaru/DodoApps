@@ -131,8 +131,20 @@
                             <outlet property="delegate" destination="dTD-I8-Ar3" id="XDB-qN-bMX"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Profile" id="9PS-fL-ngU"/>
+                    <navigationItem key="navigationItem" title="Profile" id="9PS-fL-ngU">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="Wcx-xG-eGM">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Ypf-zC-gd9">
+                                <rect key="frame" x="302" y="7" width="92" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Log Out"/>
+                                <connections>
+                                    <action selector="logoutPressed:" destination="dTD-I8-Ar3" eventType="touchUpInside" id="waW-ot-1Ue"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="beDonorBtn" destination="M31-w0-K1Q" id="dib-Ya-R2a"/>
                         <outlet property="locationLabel" destination="TQg-lP-Odn" id="1sP-Z4-62B"/>
                         <outlet property="phoneTextField" destination="cVB-xy-PIx" id="Q7v-07-zLO"/>
                         <outlet property="profileNameLabel" destination="Bvj-cR-zHw" id="sd7-UR-yQt"/>
@@ -739,7 +751,7 @@
                                         <rect key="frame" x="0.0" y="830" width="414" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6Dg-tz-odz" id="yOS-s7-LkF">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="199.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yK2-v5-y1R">
@@ -766,7 +778,7 @@
                                         <rect key="frame" x="0.0" y="1066" width="414" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="f2P-gs-gWu" id="Bdt-3f-54M">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="199.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WMy-lc-5cZ" customClass="customButton" customModule="Dodo" customModuleProvider="target">

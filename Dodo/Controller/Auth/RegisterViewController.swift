@@ -129,6 +129,8 @@ class RegisterViewController: UIViewController {
                     user.name = self.nameTxt.text
                     user.phoneNumber = self.phoneTxt.text
                     user.password = "\(password).\(salt)".sha256()
+                    user.isDonor = 0
+                    
                     
                     CloudViewController.saveUserData(user: user)
                     
@@ -143,6 +145,11 @@ class RegisterViewController: UIViewController {
     @IBAction func registerPressed(_ sender: UIButton) {
         signUp()
     }
+    
+    @IBAction func closePressed(_ sender: UIButton) {
+        NavigationController.navigateToHome(vc: self)
+    }
+    
 }
 
 extension RegisterViewController: UITextFieldDelegate

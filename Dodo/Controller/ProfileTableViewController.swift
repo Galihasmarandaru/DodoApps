@@ -8,6 +8,8 @@
 
 import UIKit
 import CloudKit
+import CoreData
+
 
 class ProfileTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -18,44 +20,52 @@ class ProfileTableViewController: UITableViewController, UIImagePickerController
     @IBOutlet var profileTableView: UITableView!
     @IBOutlet weak var profilePictureImageView: UIImageView!
     
-    var cloud = CKContainer.default().privateCloudDatabase
+    @IBOutlet weak var beDonorBtn: UIButton!
+    
+    var cloud = CKContainer.default().publicCloudDatabase
     var dogLover = [CKRecord]()
+    
+    var owner : [NSManagedObject] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let query = CKQuery(recordType: "DogLover", predicate: NSPredicate(value: true))
-        
-        cloud.perform(query, inZoneWith: nil) { (records, _) in
-            guard let records = records else { return }
-            //            guard let records = records else { return }
-            //            let sortedRecords = records.sorted(by: {$0.creationDate! > $1.creationDate!})
-            //            // akses the records pada notes
-            //            self.dogsOwner = sortedRecords
+        if AuthController.isSignedIn
+        {
+            let query = CKQuery(recordType: "DogLover", predicate: NSPredicate(value: true))
             
-            DispatchQueue.main.async {
-                for record in records {
-                    self.profileNameLabel.text = record["name"]!
-                    
-//                    self.phoneTextField.text = record["phoneNumber"]!
-//
-//                    self.locationLabel.text = record["location"]!
+            cloud.perform(query, inZoneWith: nil) { (records, _) in
+                guard let records = records else { return }
+                //            guard let records = records else { return }
+                //            let sortedRecords = records.sorted(by: {$0.creationDate! > $1.creationDate!})
+                //            // akses the records pada notes
+                //            self.dogsOwner = sortedRecords
+                
+                DispatchQueue.main.async {
+                    for record in records {
+                        self.profileNameLabel.text = record["name"]!
+                        
+                        //                    self.phoneTextField.text = record["phoneNumber"]!
+                        //
+                        //                    self.locationLabel.text = record["location"]!
+                    }
                 }
+                //            DispatchQueue.main.async {
+                //                //                 stop refresh saat ditarik
+                //                //                self.tableView.refreshControl?.endRefreshing()
+                //                self.dogLover = records
+                //
+                //            }
             }
-//            DispatchQueue.main.async {
-//                //                 stop refresh saat ditarik
-//                //                self.tableView.refreshControl?.endRefreshing()
-//                self.dogLover = records
-//
-//            }
+            
+            
+            profilePictureButton.layer.masksToBounds = true
+            profilePictureButton.layer.cornerRadius = profilePictureButton.bounds.width / 2
+            
+            
+            profileTableView.tableFooterView = UIView()
         }
-
         
-        profilePictureButton.layer.masksToBounds = true
-        profilePictureButton.layer.cornerRadius = profilePictureButton.bounds.width / 2
-
-        
-        profileTableView.tableFooterView = UIView()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -64,6 +74,40 @@ class ProfileTableViewController: UITableViewController, UIImagePickerController
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        if AuthController.isSignedIn
+        {
+            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+                return
+            }
+            
+            let managedContext = appDelegate.persistentContainer.viewContext
+            let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "DogLover")
+            
+            do {
+                owner = try managedContext.fetch(fetchRequest)
+            } catch let error as NSError {
+                print("Could not fetch. \(error), \(error.userInfo)")
+            }
+            
+            let phoneNumber = owner[0].value(forKey: "phoneNumber") as! String
+            
+            CloudViewController.fetchAuth(phone: phoneNumber) { (result) in
+                DispatchQueue.main.async {
+                    self.profileNameLabel.text = result[0].value(forKey: "name") as! String
+                    self.phoneTextField.text = phoneNumber
+                    
+                    if result[0].value(forKey: "isDonor") as! Int64 == 1
+                    {
+                        self.beDonorBtn.isHidden = true
+                    }
+                }
+            }
+        }
+    }
+    
     @IBAction func donorButtonPressed(_ sender: UIButton) {
         //
     }
@@ -203,4 +247,31 @@ class ProfileTableViewController: UITableViewController, UIImagePickerController
     }
     */
 
+    @IBAction func logoutPressed(_ sender: UIButton) {
+        do {
+            try AuthController.signOut()
+            
+            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
+            
+            let managedContext = appDelegate.persistentContainer.viewContext
+            
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "DogLover")
+            fetchRequest.returnsObjectsAsFaults = false
+            do {
+                let results = try managedContext.fetch(fetchRequest)
+                for object in results {
+                    guard let objectData = object as? NSManagedObject else {continue}
+                    managedContext.delete(objectData)
+                }
+            } catch let error {
+                print("Detele all data in DogLover error :", error)
+            }
+            
+            
+            NavigationController.navigate(vc: self, storyboard: "Authentication", to: "loginVC")
+        } catch  {
+            print("Gagal logout")
+        }
+    }
+    
 }

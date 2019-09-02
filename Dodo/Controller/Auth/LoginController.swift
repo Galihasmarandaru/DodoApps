@@ -54,7 +54,7 @@ class LoginController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         if AuthController.isSignedIn
         {
-            //navigateProfile()
+            NavigationController.navigateToHome(vc: self)
         }
     }
     
@@ -63,7 +63,7 @@ class LoginController: UIViewController {
         if AuthController.isSignedIn
         {
             print("User logged in")
-            NavigationController.navigate(vc: self, storyboard: "Main", to: "UITabBarController-LZ5-tm-lEc")
+            NavigationController.navigateToHome(vc: self)
         }
         else
         {
@@ -127,6 +127,7 @@ class LoginController: UIViewController {
         {return}
         
         CloudViewController.fetchAuth(phone: phone, completion: {(result) in
+            
             print(result.count)
             if result.count > 0 //ada data dengan no hape yg sama
             {
@@ -213,6 +214,9 @@ class LoginController: UIViewController {
         }
     }
     
+    @IBAction func closePressed(_ sender: UIButton) {
+        NavigationController.navigateToHome(vc: self)
+    }
 }
 
 extension LoginController: UITextFieldDelegate

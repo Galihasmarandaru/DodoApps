@@ -13,7 +13,7 @@ class DonorTableViewController: UIViewController{
     
 //    var owner = [People]()
     
-    var cloudOwner = CKContainer.default().privateCloudDatabase
+    var cloudOwner = CKContainer.default().publicCloudDatabase
     var donor = [CKRecord]()
     
 //    var profilDonor = People()
@@ -146,6 +146,22 @@ extension DonorTableViewController: UITableViewDataSource, UITableViewDelegate
         
         cell.nameLabel?.text = donors.value(forKey: "name") as? String
         cell.chatButton.phoneNumber = donors.value(forKey: "phoneNumber") as! String
+        
+        cell.chatButtonAction = { [unowned self] in
+            if AuthController.isSignedIn
+            {
+                print("abc")
+                let whatsappURL = URL(string: "https://api.whatsapp.com/send?phone=62" + cell.chatButton.phoneNumber + "&text=hello%20boi")
+                if UIApplication.shared.canOpenURL(whatsappURL!) {
+                    UIApplication.shared.open(whatsappURL!, options: .init(), completionHandler: nil)
+                }
+            }
+            else
+            {
+                NavigationController.navigate(vc: self, storyboard: "Authentication", to: "registerVC")
+            }
+        }
+        
         //cell.radiusLabel.text = donors.address
         //cell.radiusLabel?.text = donors.object(forKey: "name") as? String
         

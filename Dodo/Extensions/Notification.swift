@@ -10,5 +10,5 @@ import Foundation
 
 extension Notification.Name
 {
-    static let loginStatusChanged = Notification.Name("com.razeware.auth.changed")
+    static let loginStatusChanged = Notification.Name("com.dodo.auth.changed")
 }
