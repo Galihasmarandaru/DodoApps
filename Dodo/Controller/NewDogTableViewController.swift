@@ -24,7 +24,9 @@ class NewDogTableViewController: UITableViewController, UIPickerViewDelegate, UI
     @IBOutlet weak var newDogTableView: UITableView!
     @IBOutlet weak var vaccineBookView: UIView!
     
-    var cloudDog = CKContainer.default().privateCloudDatabase
+    var phone : String?
+    
+    var cloudDog = CKContainer.default().publicCloudDatabase
     
     let viewPicker = UIPickerView()
     var dogAgePickerData: [String] = [String]()
@@ -247,7 +249,14 @@ class NewDogTableViewController: UITableViewController, UIPickerViewDelegate, UI
                 }
             }
             
-            performSegue(withIdentifier: "goToProfileBeADonor", sender: self)
+            CloudViewController.fetchAuth(phone: phone!) { (result) in
+                result[0].setValue(1, forKey: "isDonor")
+                
+                self.cloudDog.save(result[0]){ (record, _) in
+                }
+            }
+            
+//            performSegue(withIdentifier: "goToProfileBeADonor", sender: self)
         }
     }
     
@@ -257,12 +266,12 @@ class NewDogTableViewController: UITableViewController, UIPickerViewDelegate, UI
         self.present(alertController, animated: true, completion: nil)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.destination is ProfileBeADonorTableViewController {
-            let vc = segue.destination as? ProfileBeADonorTableViewController
-            vc?.dogList.append(dog!)
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.destination is ProfileBeADonorTableViewController {
+//            let vc = segue.destination as? ProfileBeADonorTableViewController
+//            vc?.dogList.append(dog!)
+//        }
+//    }
     // MARK: - Table view data source
 
 //    override func numberOfSections(in tableView: UITableView) -> Int {

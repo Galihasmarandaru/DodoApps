@@ -24,6 +24,8 @@ class ProfileBeADonorTableViewController: UITableViewController, UIImagePickerCo
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+       self.navigationItem.setHidesBackButton(true, animated: true)
         profilePictureButton.layer.masksToBounds = true
         profilePictureButton.layer.cornerRadius = profilePictureButton.bounds.width / 2
         
