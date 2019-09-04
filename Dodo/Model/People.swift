@@ -34,6 +34,4 @@ class People: NSObject {
         self.init()
         self.recordID = recordName
     }
-    
-    
 }

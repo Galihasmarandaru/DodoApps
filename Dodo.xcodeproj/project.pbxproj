@@ -46,7 +46,6 @@
 		CA553E3A230D0A6200BC82CA /* Dog.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA553E39230D0A6200BC82CA /* Dog.swift */; };
 		CA553E3E230D0E2000BC82CA /* ListDogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA553E3D230D0E2000BC82CA /* ListDogViewController.swift */; };
 		CA8A424B230ED8550074EA4D /* DistanceMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8A424A230ED8550074EA4D /* DistanceMapViewController.swift */; };
-		CA8A424D230EDF850074EA4D /* MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8A424C230EDF850074EA4D /* MapModel.swift */; };
 		CA8A424F230EE06A0074EA4D /* CloudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8A424E230EE06A0074EA4D /* CloudViewController.swift */; };
 		CA8CED382315E85200F93B3D /* ListDogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8CED372315E85200F93B3D /* ListDogTableViewCell.swift */; };
 		CA8CED532316465400F93B3D /* chatButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8CED522316465400F93B3D /* chatButton.swift */; };
@@ -55,6 +54,8 @@
 		CA9856B923050626004170AA /* Dodo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CA9856B723050626004170AA /* Dodo.xcdatamodeld */; };
 		CA9856BB23050627004170AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA9856BA23050627004170AA /* Assets.xcassets */; };
 		CABBFDFF2312DC8600C5CBAC /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABBFDFE2312DC8600C5CBAC /* CloudKit.framework */; };
+		CACC7DA2231E14130017F828 /* UISearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACC7DA1231E14130017F828 /* UISearchTableViewCell.swift */; };
+		CACC7DA4231E3EFE0017F828 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CACC7DA3231E3EFE0017F828 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -99,7 +100,6 @@
 		CA553E39230D0A6200BC82CA /* Dog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dog.swift; sourceTree = "<group>"; };
 		CA553E3D230D0E2000BC82CA /* ListDogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDogViewController.swift; sourceTree = "<group>"; };
 		CA8A424A230ED8550074EA4D /* DistanceMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceMapViewController.swift; sourceTree = "<group>"; };
-		CA8A424C230EDF850074EA4D /* MapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModel.swift; sourceTree = "<group>"; };
 		CA8A424E230EE06A0074EA4D /* CloudViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudViewController.swift; sourceTree = "<group>"; };
 		CA8CED372315E85200F93B3D /* ListDogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDogTableViewCell.swift; sourceTree = "<group>"; };
 		CA8CED522316465400F93B3D /* chatButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chatButton.swift; sourceTree = "<group>"; };
@@ -111,6 +111,8 @@
 		CA9856BF23050627004170AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CABBFDFC2312DC8300C5CBAC /* Dodo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Dodo.entitlements; sourceTree = "<group>"; };
 		CABBFDFE2312DC8600C5CBAC /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		CACC7DA1231E14130017F828 /* UISearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISearchTableViewCell.swift; sourceTree = "<group>"; };
+		CACC7DA3231E3EFE0017F828 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CABBFDFF2312DC8600C5CBAC /* CloudKit.framework in Frameworks */,
+				CACC7DA4231E3EFE0017F828 /* MapKit.framework in Frameworks */,
 				9AE1F147E4395F989C2E72B9 /* Pods_Dodo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,7 +284,6 @@
 				CA553D9A23099CFC00BC82CA /* DonorTableViewController.swift */,
 				CA553E3D230D0E2000BC82CA /* ListDogViewController.swift */,
 				CA8A424E230EE06A0074EA4D /* CloudViewController.swift */,
-				CA8CED3B23161BEF00F93B3D /* OnBoardingViewController.swift */,
 				93EB89CB231AB98200BA8551 /* TabBarController.swift */,
 			);
 			path = Controller;
@@ -321,7 +323,7 @@
 		CA8A4249230ED80B0074EA4D /* Distance Donor */ = {
 			isa = PBXGroup;
 			children = (
-				CA8A424C230EDF850074EA4D /* MapModel.swift */,
+				CACC7DA1231E14130017F828 /* UISearchTableViewCell.swift */,
 			);
 			path = "Distance Donor";
 			sourceTree = "<group>";
@@ -371,6 +373,7 @@
 		CABBFDFD2312DC8600C5CBAC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CACC7DA3231E3EFE0017F828 /* MapKit.framework */,
 				CABBFDFE2312DC8600C5CBAC /* CloudKit.framework */,
 				8ACE1DAC2A007AA825F9D3C6 /* Pods_Dodo.framework */,
 			);
@@ -421,6 +424,9 @@
 					CA9856AC23050625004170AA = {
 						CreatedOnToolsVersion = 10.3;
 						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};
@@ -532,10 +538,10 @@
 				CA8CED382315E85200F93B3D /* ListDogTableViewCell.swift in Sources */,
 				93B420BB2313A14D000950F1 /* CustomButton.swift in Sources */,
 				93B4209823139EB6000950F1 /* User.swift in Sources */,
+				CACC7DA2231E14130017F828 /* UISearchTableViewCell.swift in Sources */,
 				93B420A223139EC9000950F1 /* customTextField.swift in Sources */,
 				CA9856B123050626004170AA /* AppDelegate.swift in Sources */,
 				93992665231680020013D673 /* View Controller.swift in Sources */,
-				CA8A424D230EDF850074EA4D /* MapModel.swift in Sources */,
 				93B4209323139E90000950F1 /* ProfileDonorViewController.swift in Sources */,
 				CA553D9D23099D9B00BC82CA /* People.swift in Sources */,
 				A33A32522314CB57002A263B /* DogDetailTableViewController.swift in Sources */,
@@ -700,14 +706,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Dodo/Dodo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CXXG8H769J;
+				DEVELOPMENT_TEAM = SJAF5B347D;
 				INFOPLIST_FILE = Dodo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.fredericorlando.Dodo;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Galih-A.Dodo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -721,14 +727,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Dodo/Dodo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CXXG8H769J;
+				DEVELOPMENT_TEAM = SJAF5B347D;
 				INFOPLIST_FILE = Dodo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.fredericorlando.Dodo;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Galih-A.Dodo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

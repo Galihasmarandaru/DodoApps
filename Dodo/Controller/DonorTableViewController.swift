@@ -12,8 +12,6 @@ import SwiftyDropbox
 
 class DonorTableViewController: UIViewController{
     
-//    var owner = [People]()
-    
     var cloudOwner = CKContainer.default().publicCloudDatabase
     var donor = [CKRecord]()
     
@@ -29,18 +27,16 @@ class DonorTableViewController: UIViewController{
         self.tableView.refreshControl = refreshControl
         
         self.navigationController?.navigationBar.prefersLargeTitles = true
+        tableView.tableFooterView = UIView()
         
-//        var donorTableCell = DonorTableViewCell()
-//        donorTableCell.imageDonor.layer.cornerRadius = donorTableCell.imageDonor.frame.height/2
-        
-
+        distance.checkLocationServices()
         queryDatabase()
-
     }
+    
     @objc func tapButton() {
         print("youu tap!")
     }
-
+    
     // MARK: - Table view data source
     
     // for show owner dog
@@ -75,27 +71,25 @@ extension DonorTableViewController: UITableViewDataSource, UITableViewDelegate
         
         let donors = donor[indexPath.row]
         
-//        DispatchQueue.global(qos: .background).async {
             cell.nameLabel?.text = donors.value(forKey: "name") as? String
-//        }
-//        cell.radiusLabel?.text = distance.getDistance(donorLocation: donors.value(forKey: "location") as! CLLocation)
         
             cell.imageDonor.layer.cornerRadius = cell.imageDonor.frame.height/2
-//        DispatchQueue.global(qos: .background).async {
+
             if let asset = donors.value(forKey: "image") as? CKAsset,
                 let data = try? Data(contentsOf: asset.fileURL!)
             {
                 cell.imageDonor.image = UIImage(data: data)
             }
-//        }
+        
+        let location = distance.getDistance(donorLocation: (donors.value(forKey: "location") as? CLLocation)!)
+        
+        cell.radiusLabel.text = location
 
-//        cell.imageDonor.image = donors.value(forKey: "image") as? UIImage
         cell.chatButton.phoneNumber = donors.value(forKey: "phoneNumber") as! String
         
         cell.chatButtonAction = { [unowned self] in
             if AuthController.isSignedIn
             {
-                print("abc")
                 let whatsappURL = URL(string: "https://api.whatsapp.com/send?phone=62" + cell.chatButton.phoneNumber + "&text=hello%20boi")
                 if UIApplication.shared.canOpenURL(whatsappURL!) {
                     UIApplication.shared.open(whatsappURL!, options: .init(), completionHandler: nil)
@@ -107,9 +101,6 @@ extension DonorTableViewController: UITableViewDataSource, UITableViewDelegate
             }
         }
         
-        //cell.radiusLabel.text = donors.address
-        //cell.radiusLabel?.text = donors.object(forKey: "name") as? String
-        
         return cell
     }
     
@@ -119,8 +110,6 @@ extension DonorTableViewController: UITableViewDataSource, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-//        let vc = ListDogViewController()
-        
         let donors = donor[indexPath.row]
         
         if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ListDogView") as? ListDogViewController {            
@@ -128,17 +117,13 @@ extension DonorTableViewController: UITableViewDataSource, UITableViewDelegate
             viewController.recordID = donors.recordID
             
             viewController.userName = (donors.value(forKey: "name") as? String)!
-//            viewController.imageOwner = (donors.value(forKey: "image") as? UIImage)!
-            
-//            cell.imageDonor.layer.cornerRadius = cell.imageDonor.frame.height/2        
+
             
             if let asset = donors.value(forKey: "image") as? CKAsset,
                 let data = try? Data(contentsOf: asset.fileURL!)
             {
                 viewController.imageOwner = UIImage(data: data)
             }
-
-
             
             if let navigator = navigationController {
                 navigator.pushViewController(viewController, animated: true)

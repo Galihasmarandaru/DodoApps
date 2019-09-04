@@ -11,7 +11,7 @@ import SwiftyDropbox
 
 let DropboxAPI_AccessToken = "7IqCkmuBNlAAAAAAAAABTmsyPPE039bW9rvjcbilba8n4WR61jomAvJLdi7hCTct"
 let DropboxAPI_AppKey = "04ua43h1jrag0h4"
-let BASE_LOCATION = "/home/Apps/DodoApps"
+let BASE_LOCATION = "/images"
 let client = DropboxClient(accessToken: DropboxAPI_AccessToken)
 
 

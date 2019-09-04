@@ -132,12 +132,34 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="E7g-3K-Fjf"/>
                                 </connections>
                             </tableView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m4f-zQ-F1J">
+                                <rect key="frame" x="0.0" y="274" width="414" height="468"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No data available at the moment" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0GR-Sa-Lsl">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="468"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="0GR-Sa-Lsl" secondAttribute="trailing" id="51D-yp-s4o"/>
+                                    <constraint firstItem="0GR-Sa-Lsl" firstAttribute="leading" secondItem="m4f-zQ-F1J" secondAttribute="leading" id="WfP-BM-Ltc"/>
+                                    <constraint firstAttribute="bottom" secondItem="0GR-Sa-Lsl" secondAttribute="bottom" id="XaQ-YK-Qyd"/>
+                                    <constraint firstItem="0GR-Sa-Lsl" firstAttribute="top" secondItem="m4f-zQ-F1J" secondAttribute="top" id="ZyE-5Z-ogi"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="m4f-zQ-F1J" firstAttribute="top" secondItem="EPq-dB-bnA" secondAttribute="top" id="6oj-nw-ry1"/>
+                            <constraint firstItem="m4f-zQ-F1J" firstAttribute="trailing" secondItem="EPq-dB-bnA" secondAttribute="trailing" id="LWK-qS-sDQ"/>
                             <constraint firstItem="AOH-WZ-yN4" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="UHW-9V-I7p"/>
                             <constraint firstItem="EPq-dB-bnA" firstAttribute="top" secondItem="AOH-WZ-yN4" secondAttribute="bottom" id="gBI-fg-3oU"/>
                             <constraint firstItem="EPq-dB-bnA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="lVi-p6-QyZ"/>
+                            <constraint firstItem="m4f-zQ-F1J" firstAttribute="bottom" secondItem="EPq-dB-bnA" secondAttribute="bottom" id="n31-if-ObC"/>
+                            <constraint firstItem="m4f-zQ-F1J" firstAttribute="leading" secondItem="EPq-dB-bnA" secondAttribute="leading" id="ttp-tA-AtA"/>
                             <constraint firstItem="AOH-WZ-yN4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ynb-3J-TxJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -146,6 +168,7 @@
                     <connections>
                         <outlet property="imageOwn" destination="Se2-Q1-KBe" id="Dkq-h3-U6b"/>
                         <outlet property="nameProfilList" destination="z7b-Cd-Vsv" id="4UT-qb-uDv"/>
+                        <outlet property="noDataView" destination="m4f-zQ-F1J" id="prz-Tt-fwu"/>
                         <outlet property="tableView" destination="EPq-dB-bnA" id="zyJ-pX-eav"/>
                     </connections>
                 </viewController>

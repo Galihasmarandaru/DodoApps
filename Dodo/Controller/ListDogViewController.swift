@@ -11,6 +11,7 @@ import CloudKit
 
 class ListDogViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    @IBOutlet weak var noDataView: UIView!
     @IBOutlet weak var imageOwn: UIImageView!
     @IBOutlet weak var nameProfilList: UILabel!
     
@@ -20,19 +21,16 @@ class ListDogViewController: UIViewController, UITableViewDataSource, UITableVie
     
     @IBOutlet weak var tableView: UITableView!
     
-    var cloudDog = CKContainer.default().privateCloudDatabase
+    var cloudDog = CKContainer.default().publicCloudDatabase
     var dogList = [CKRecord]()
     
     override func viewDidLoad() {
         super.viewDidLoad()        
                 
         let refreshControl = UIRefreshControl()
-        //        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refreshControl.addTarget(self, action: #selector(dogDatabase), for: .valueChanged)
         self.tableView.refreshControl = refreshControl
         
-        // Do any additional setup after loading the view.
-//        dogDatabase()
         nameProfilList?.text = userName
         
         imageOwn.layer.cornerRadius = imageOwn.frame.height/2
@@ -57,18 +55,22 @@ class ListDogViewController: UIViewController, UITableViewDataSource, UITableVie
         let pred = NSPredicate(format: "ownerID == %@", reference)
 
         let query = CKQuery(recordType: "Dogs", predicate: pred)
-//        let query = CKQuery(recordType: "Dogs", predicate: NSPredicate(value: true))
 
             self.cloudDog.perform(query, inZoneWith: nil) { [unowned self] records, _ in
                 guard let records = records else { return }
                 DispatchQueue.main.async {
                     self.dogList = records
                     self.tableView.refreshControl?.endRefreshing()
-                    self.tableView.reloadData()
-                }
-//            }
-
-            
+                    if self.dogList.count != 0 {
+                        self.noDataView.isHidden = true
+                        self.tableView.isHidden = false
+                        self.tableView.reloadData()
+                    } else {
+                        self.noDataView.isHidden = false
+                        self.tableView.isHidden = true
+                    }
+                    
+                }            
         }
         
     }
