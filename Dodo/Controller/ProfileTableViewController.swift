@@ -13,6 +13,7 @@ import CoreData
 
 class ProfileTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    @IBOutlet weak var logoutButton: UIBarButtonItem!
     @IBOutlet weak var profilePictureButton: UIButton!
     @IBOutlet weak var profileNameLabel: UILabel!
     @IBOutlet weak var phoneTextField: UITextField!
@@ -32,32 +33,6 @@ class ProfileTableViewController: UITableViewController, UIImagePickerController
         
         if AuthController.isSignedIn
         {
-            let query = CKQuery(recordType: "DogLover", predicate: NSPredicate(value: true))
-            
-            cloud.perform(query, inZoneWith: nil) { (records, _) in
-                guard let records = records else { return }
-                //            guard let records = records else { return }
-                //            let sortedRecords = records.sorted(by: {$0.creationDate! > $1.creationDate!})
-                //            // akses the records pada notes
-                //            self.dogsOwner = sortedRecords
-                
-                DispatchQueue.main.async {
-                    for record in records {
-                        self.profileNameLabel.text = record["name"]!
-                        
-                        //                    self.phoneTextField.text = record["phoneNumber"]!
-                        //
-                        //                    self.locationLabel.text = record["location"]!
-                    }
-                }
-                //            DispatchQueue.main.async {
-                //                //                 stop refresh saat ditarik
-                //                //                self.tableView.refreshControl?.endRefreshing()
-                //                self.dogLover = records
-                //
-                //            }
-            }
-            
             
             profilePictureButton.layer.masksToBounds = true
             profilePictureButton.layer.cornerRadius = profilePictureButton.bounds.width / 2
@@ -65,18 +40,11 @@ class ProfileTableViewController: UITableViewController, UIImagePickerController
             
             profileTableView.tableFooterView = UIView()
         }
-        
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        
         if AuthController.isSignedIn
         {
             guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
@@ -247,7 +215,7 @@ class ProfileTableViewController: UITableViewController, UIImagePickerController
     }
     */
 
-    @IBAction func logoutPressed(_ sender: UIButton) {
+    @IBAction func logoutPressed(_ sender: UIBarButtonItem) {
         do {
             try AuthController.signOut()
             
@@ -268,10 +236,38 @@ class ProfileTableViewController: UITableViewController, UIImagePickerController
             }
             
             
-            NavigationController.navigate(vc: self, storyboard: "Authentication", to: "loginVC")
+            NavigationController.changeRoot(vc: self, storyboard: "Authentication", to: "loginVC")
         } catch  {
             print("Gagal logout")
         }
     }
     
+//    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        switch section {
+//        case 2:
+//            return 0.0
+//        default:
+//            return UITableView.automaticDimension
+//        }
+//    }
+//    
+//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        if section == 2
+//        {
+//            return 0
+//        }
+//        else
+//        {
+//            return 1
+//        }
+//    }
+//    
+//    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        switch section {
+//        case 1:
+//            return "Phone"
+//        default:
+//            return nil
+//        }
+//    }
 }

@@ -86,7 +86,7 @@
                                                         <rect key="frame" x="47" y="0.0" width="267" height="30"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="phonePad"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -230,7 +230,7 @@
                                                         <rect key="frame" x="47" y="0.0" width="267" height="30"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="phonePad"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -344,7 +344,4 @@
             <point key="canvasLocation" x="209" y="9"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="54y-y5-U0t"/>
-    </inferredMetricsTieBreakers>
 </document>

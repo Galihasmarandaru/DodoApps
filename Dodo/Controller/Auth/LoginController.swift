@@ -35,8 +35,8 @@ class LoginController: UIViewController {
         passTxt.delegate = self
         passTxt.tag = TextFieldTag.password.rawValue
         
-        phoneErr.textColor = .clear
-        passErr.textColor = .clear
+        phoneErr.reset()
+        passErr.reset()
         
         loadingContainer.backgroundColor = .clear
     }
@@ -111,8 +111,28 @@ class LoginController: UIViewController {
     private func signIn()
     {
         clearCoreData()
-        self.phoneErr.textColor = .clear
-        self.passErr.textColor = .clear
+    
+        phoneErr.reset()
+        passErr.reset()
+        
+        if phoneTxt.text!.count == 0 || passTxt.text!.count == 0
+        {
+            let errorText  = "Must be filled"
+            
+            if phoneTxt.text!.count == 0
+            {
+                phoneErr.text = errorText
+                phoneErr.textColor = .ErrorRed
+            }
+            
+            if passTxt.text!.count == 0
+            {
+                passErr.text = errorText
+                passErr.textColor = .ErrorRed
+            }
+            
+            return
+        }
         
         startLoading()
         
@@ -140,7 +160,6 @@ class LoginController: UIViewController {
                     do {
                         try AuthController.signIn(user, password: password)
                         
-
                         self.savePhoneNumber(phone: phone)
                     } catch{
                         print("Error signing in: \(error.localizedDescription)")

@@ -46,10 +46,15 @@ class RegisterViewController: UIViewController {
         cpassTxt.delegate = self
         cpassTxt.tag = TextFieldTag.cpassword.rawValue
         
-        nameErr.textColor = .clear
-        phoneErr.textColor = .clear
-        passErr.textColor = .clear
-        cpassErr.textColor = .clear
+        nameErr.reset()
+        phoneErr.reset()
+        passErr.reset()
+        cpassErr.reset()
+        
+//        nameErr.textColor = .ErrorRed
+//        phoneErr.textColor = .ErrorRed
+//        passErr.textColor = .ErrorRed
+//        cpassErr.textColor = .ErrorRed
     }
 
     func isPasswordEqual() -> Bool
@@ -78,9 +83,9 @@ class RegisterViewController: UIViewController {
                 if result
                 {
                     DispatchQueue.main.async {
-                        self.phoneErr.textColor = .ErrorRed
                         
                         self.phoneErr.text = "User exists"
+                        self.phoneErr.textColor = .ErrorRed
                     }
                 }
                 
@@ -89,11 +94,11 @@ class RegisterViewController: UIViewController {
                     {
                         let errorText = "Different password"
                         
-                        self.passErr.textColor = .ErrorRed
-                        self.cpassErr.textColor = .ErrorRed
-                        
                         self.passErr.text = errorText
+                        self.passErr.textColor = .ErrorRed
+                        
                         self.cpassErr.text = errorText
+                        self.cpassErr.textColor = .ErrorRed
                     }
                 }
                 DispatchQueue.main.async {
@@ -111,18 +116,44 @@ class RegisterViewController: UIViewController {
     
     func signUp()
     {
-        nameErr.textColor = .clear
-        phoneErr.textColor = .clear
-        passErr.textColor = .clear
-        cpassErr.textColor = .clear
         
+        nameErr.reset()
+        phoneErr.reset()
+        passErr.reset()
+        cpassErr.reset()
+        
+        if phoneTxt.text!.count == 0 || nameTxt.text!.count == 0 || passTxt.text!.count == 0
+        {
+            let errorText  = "Must be filled"
+            
+            if phoneTxt.text!.count == 0
+            {
+                phoneErr.text = errorText
+                phoneErr.textColor = .ErrorRed
+            }
+            
+            if nameTxt.text!.count == 0
+            {
+                nameErr.text = errorText
+                nameErr.textColor = .ErrorRed
+            }
+            
+            if passTxt.text!.count == 0
+            {
+                passErr.text = errorText
+                passErr.textColor = .ErrorRed
+            }
+            
+            return
+        }
+
         //put sign up func here
         isDataValid(completion: { (result) in
             if result
             {
                 DispatchQueue.main.async {
                     let salt = "xhakgl1m4jl0kal8=gma0.m"
-                    var user = People()
+                    let user = People()
                     
                     let password : String = self.passTxt.text!
                     

@@ -26,7 +26,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bvj-cR-zHw">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bvj-cR-zHw">
                                                     <rect key="frame" x="20" y="153" width="374" height="29"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
@@ -132,20 +132,16 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Profile" id="9PS-fL-ngU">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="Wcx-xG-eGM">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Ypf-zC-gd9">
-                                <rect key="frame" x="302" y="7" width="92" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Log Out"/>
-                                <connections>
-                                    <action selector="logoutPressed:" destination="dTD-I8-Ar3" eventType="touchUpInside" id="waW-ot-1Ue"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" title="Log Out" id="Ws8-jV-ECw">
+                            <connections>
+                                <action selector="logoutPressed:" destination="dTD-I8-Ar3" id="13N-Zb-czi"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="beDonorBtn" destination="M31-w0-K1Q" id="dib-Ya-R2a"/>
                         <outlet property="locationLabel" destination="TQg-lP-Odn" id="1sP-Z4-62B"/>
+                        <outlet property="logoutButton" destination="Ws8-jV-ECw" id="OlK-BD-Z4u"/>
                         <outlet property="phoneTextField" destination="cVB-xy-PIx" id="Q7v-07-zLO"/>
                         <outlet property="profileNameLabel" destination="Bvj-cR-zHw" id="sd7-UR-yQt"/>
                         <outlet property="profilePictureButton" destination="CPN-X0-eJx" id="2wm-xo-DWG"/>
@@ -872,6 +868,6 @@
         <image name="Profile" width="16" height="18.5"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="yMP-qZ-TtM"/>
+        <segue reference="8Qn-gO-MO1"/>
     </inferredMetricsTieBreakers>
 </document>

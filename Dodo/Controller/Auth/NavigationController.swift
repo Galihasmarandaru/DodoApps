@@ -20,8 +20,15 @@ final class NavigationController: UIViewController {
     {
         let storyboard = UIStoryboard(name: storyboard, bundle: nil)
         let view = storyboard.instantiateViewController(withIdentifier: vcId)
-        
+
         vc.present(view, animated: false, completion: nil)
+    }
+    
+    class func changeRoot(vc: UIViewController, storyboard: String, to vcId: String)
+    {
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: storyboard, bundle: nil)
+        let view = mainStoryboard.instantiateViewController(withIdentifier: vcId)
+        UIApplication.shared.keyWindow?.rootViewController = view
     }
     
     class func navigateToHome(vc: UIViewController)

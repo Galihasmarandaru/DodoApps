@@ -14,7 +14,6 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         super.viewDidLoad()
 
         self.delegate = self
-        // Do any additional setup after loading the view.
     }
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
@@ -22,7 +21,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         {
             if !AuthController.isSignedIn
             {
-                NavigationController.navigate(vc: viewController, storyboard: "Authentication", to: "registerVC")
+                NavigationController.changeRoot(vc: viewController, storyboard: "Authentication", to: "registerVC")
             }
         }
     }
